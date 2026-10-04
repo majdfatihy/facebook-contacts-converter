@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <!-- Google tag (gtag.js) -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-0XEEB7NRRD"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -10,8 +12,6 @@
 
   gtag('config', 'G-0XEEB7NRRD');
 </script>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>محوّل جهات اتصال فيسبوك إلى Excel وvCard وGoogle | Facebook Contacts Converter</title>
 <meta name="description" content="حوّل ملف جهات الاتصال من فيسبوك (HTML أو JSON) إلى Excel أو vCard أو Google CSV مجاناً وبدون رفع بياناتك. Convert Facebook contacts export to Excel, vCard and Google CSV – free, private, in your browser.">
 <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large">
@@ -23,7 +23,7 @@
 <meta property="og:description" content="Excel · vCard · Google CSV — مجاني وخاص، يعمل داخل متصفحك. Free & private, runs in your browser.">
 <meta property="og:image" content="https://majdfatihy.github.io/facebook-contacts-converter/og-image.png"><meta property="og:locale" content="ar_AR"><meta property="og:locale:alternate" content="en_US">
 <meta name="twitter:card" content="summary_large_image">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Facebook Contacts Converter","alternateName":"محوّل جهات اتصال فيسبوك","url":"https://majdfatihy.github.io/facebook-contacts-converter/","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","inLanguage":["ar","en"],"isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"Convert Facebook contacts export (HTML/JSON) to Excel, vCard and Google CSV in your browser without uploading data."}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","sameAs":["https://youtube.com/@majdfatihy","https://www.facebook.com/majdfatihyfp","https://www.instagram.com/majdfatihy","https://www.tiktok.com/@majdfatihy"],"name":"Facebook Contacts Converter","alternateName":"محوّل جهات اتصال فيسبوك","url":"https://majdfatihy.github.io/facebook-contacts-converter/","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","inLanguage":["ar","en"],"isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"Convert Facebook contacts export (HTML/JSON) to Excel, vCard and Google CSV in your browser without uploading data."}</script>
 <style>
 :root{--bg:#f4f7f6;--card:#fff;--tx:#14201d;--mut:#5d6f6a;--ac:#0a7a65;--on:#fff;--ac2:#e3f4f0;--bd:#d9e3e0;--hl:#ffe36b;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
 @media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1715;--card:#17211f;--tx:#e8f1ef;--mut:#92a8a2;--ac:#2cc3a8;--ac2:#1b312d;--bd:#2a3a37;--hl:#7a6a10;--on:#06201b}}
@@ -58,6 +58,10 @@ mark{background:var(--hl);color:inherit;border-radius:3px;padding:0 1px}
 .cl{display:flex;gap:6px;align-items:center;margin:3px 0}
 footer{border-top:1px solid var(--bd);padding:16px 14px;text-align:center;color:var(--mut);font-size:.88rem}
 footer a{color:var(--ac);margin:0 8px;cursor:pointer;text-decoration:underline}
+.soc{margin-top:8px;display:flex;flex-wrap:wrap;justify-content:center;gap:4px 0}
+dialog a{color:var(--ac)}
+#dlgb .soc{margin:12px 0 0;justify-content:flex-start}
+#dlgb .soc a{margin:0 0 0 14px}
 dialog{max-width:560px;width:92%;background:var(--card);color:var(--tx);border:1px solid var(--bd);border-radius:14px}
 dialog::backdrop{background:#0008}
 .fc{border:1px solid var(--bd);border-radius:12px;padding:12px}.fc h3{margin:0;font-size:1rem;color:var(--ac)}.fc ol{margin:6px 0;padding-inline-start:20px;font-size:.86rem}.fc input[type=number]{width:70px;padding:4px;border-radius:8px;border:1px solid var(--bd);background:var(--bg);color:var(--tx)}.fc .btn{margin-top:6px;background:var(--ac);color:var(--on);border-color:var(--ac)}
@@ -125,13 +129,14 @@ dialog::backdrop{background:#0008}
 </section>
 </main>
 <footer>
-  <div><a data-p="about">من نحن</a><a data-p="howto">طريقة الاستخدام</a><a data-p="privacy">الخصوصية</a><a data-p="terms">الشروط</a><a data-p="contact">اتصل بنا</a></div>
+  <div><a href="#about" data-p="about">من نحن</a><a href="#howto" data-p="howto">طريقة الاستخدام</a><a href="#privacy" data-p="privacy">الخصوصية</a><a href="#terms" data-p="terms">الشروط</a><a href="#contact" data-p="contact">اتصل بنا</a></div>
+  <div class="soc" id="soc"><a href="https://wa.me/201066732514" target="_blank" rel="noopener noreferrer">WhatsApp</a><a href="https://youtube.com/@majdfatihy" target="_blank" rel="noopener noreferrer">YouTube</a><a href="https://www.facebook.com/majdfatihyfp" target="_blank" rel="noopener noreferrer">Facebook</a><a href="https://www.instagram.com/majdfatihy" target="_blank" rel="noopener noreferrer">Instagram</a><a href="https://www.tiktok.com/@majdfatihy" target="_blank" rel="noopener noreferrer">TikTok</a></div>
   <div style="margin-top:8px">© <span id="yr"></span> — <span data-i="title">محوّل جهات اتصال فيسبوك</span></div>
 </footer>
 <dialog id="dlg"><div id="dlgb"></div><div class="row"><button class="btn" id="dlgx"></button></div></dialog>
 
 <script>
-const CONTACT_EMAIL=''; // ← ضع بريدك هنا / put your contact email here
+const CONTACT_EMAIL='fthymajd3701@gmail.com'; // ← ضع بريدك هنا / put your contact email here
 const $=id=>document.getElementById(id);
 const store={get:k=>{try{return localStorage.getItem(k)}catch(e){return null}},set:(k,v)=>{try{localStorage.setItem(k,v)}catch(e){}}};
 
@@ -148,7 +153,7 @@ ar:{title:'محوّل جهات اتصال فيسبوك',seoTitle:'محوّل ج�
  about:'من نحن',howto:'طريقة الاستخدام',privacy:'الخصوصية',terms:'الشروط',contact:'اتصل بنا',
  P:{about:'أداة مجانية لتحويل ملفات جهات الاتصال التي تحمّلها من فيسبوك إلى Excel وإلى صيغ جاهزة للاستيراد في الهاتف وGoogle وOutlook.',
  howto:'1) من فيسبوك حمّل معلوماتك واختر «دفاتر العناوين / جهات الاتصال المستوردة». 2) ارفع الملف هنا. 3) راجع النتائج وصفّها. 4) اختر الصيغة. أندرويد: جهات الاتصال ← استيراد ← ملف vcf. آيفون/Gmail: ارفع CSV إلى contacts.google.com.',
- privacy:'كل المعالجة تتم داخل متصفحك. لا نرفع ملفاتك ولا نخزّن جهات اتصالك ولا نرسلها لأي طرف. الإعدادات (اللغة والمظهر) فقط تُحفظ محلياً في جهازك.',
+ privacy:'كل المعالجة تتم داخل متصفحك. لا نرفع ملفاتك ولا نخزّن جهات اتصالك ولا نرسلها لأي طرف. الإعدادات (اللغة والمظهر) فقط تُحفظ محلياً في جهازك. يستخدم الموقع Google Analytics لإحصاء الزيارات فقط، ولا تُرسل إليه أي بيانات من ملفاتك أو جهات اتصالك.',
  terms:'الأداة مقدّمة كما هي دون ضمانات. أنت المسؤول عن البيانات التي تحوّلها وعن الاحتفاظ بنسخة احتياطية قبل أي استيراد، وعن التأكد من أن لديك حق استخدام هذه الجهات.',
  contact:'للاقتراحات والمشاكل راسلنا:'},none:'ملاحظة: لا تحتوي ملفات فيسبوك على شركة أو ملاحظات؛ تحتوي فقط الاسم والأرقام/البريد وتاريخ الإضافة.'},
 en:{title:'Facebook Contacts Converter',seoTitle:'Facebook Contacts Converter – Excel, vCard & Google CSV',sub:'Convert Facebook contact exports to Excel or phone-ready import files.',drop:'Click to choose a file or drop it here (you can pick both files)',dropSub:'your_address_books.html / your_imported_contacts.json',priv:'🔒 Everything is processed in your browser. Nothing is uploaded to any server.',
@@ -163,7 +168,7 @@ en:{title:'Facebook Contacts Converter',seoTitle:'Facebook Contacts Converter �
  about:'About',howto:'How to use',privacy:'Privacy',terms:'Terms',contact:'Contact',
  P:{about:'A free tool that converts the contact files you download from Facebook into Excel and import-ready formats for your phone, Google and Outlook.',
  howto:'1) Download your information from Facebook (address books / imported contacts). 2) Upload the file here. 3) Review and clean the results. 4) Pick a format. Android: Contacts → Import → vcf file. iPhone/Gmail: upload the CSV at contacts.google.com.',
- privacy:'All processing happens in your browser. We do not upload your files, store your contacts, or send them to anyone. Only your language and theme choice are saved locally on your device.',
+ privacy:'All processing happens in your browser. We do not upload your files, store your contacts, or send them to anyone. Only your language and theme choice are saved locally on your device. The site uses Google Analytics to count visits only; nothing from your files or contacts is ever sent to it.',
  terms:'The tool is provided as-is with no warranty. You are responsible for the data you convert, for keeping a backup before importing, and for having the right to use these contacts.',
  contact:'For feedback and issues, email us:'},none:'Note: Facebook files contain no company or notes fields — only name, numbers/emails and the date added.'}
 };
@@ -389,9 +394,10 @@ function applyLang(){const h=document.documentElement;h.lang=LANG;h.dir=LANG==='
 function applyTheme(){const r=document.documentElement;THEME==='auto'?r.removeAttribute('data-theme'):r.setAttribute('data-theme',THEME);$('bTheme').textContent='◐ '+t('th_'+THEME[0])}
 $('bLang').onclick=()=>{LANG=LANG==='ar'?'en':'ar';store.set('lang',LANG);applyLang()};
 $('bTheme').onclick=()=>{THEME={auto:'light',light:'dark',dark:'auto'}[THEME];store.set('theme',THEME);applyTheme()};
-document.querySelectorAll('[data-p]').forEach(a=>a.onclick=()=>{const k=a.dataset.p,b=$('dlgb');b.innerHTML='';
+document.querySelectorAll('[data-p]').forEach(a=>a.onclick=e=>{e.preventDefault();const k=a.dataset.p,b=$('dlgb');b.innerHTML='';
  const h=document.createElement('h3'),p=document.createElement('p');h.textContent=t(k);p.textContent=t('P')[k];b.append(h,p);
- if(k==='contact'){if(CONTACT_EMAIL){const l=document.createElement('a');l.href='mailto:'+CONTACT_EMAIL;l.textContent=CONTACT_EMAIL;b.appendChild(l)}}
+ if(k==='contact'){if(CONTACT_EMAIL){const l=document.createElement('a');l.href='mailto:'+CONTACT_EMAIL;l.textContent=CONTACT_EMAIL;b.appendChild(l)}
+   const sc=document.createElement('div');sc.className='soc';$('soc').querySelectorAll('a').forEach(x=>sc.appendChild(x.cloneNode(true)));b.appendChild(sc)}
  if(k==='about'||k==='howto'){const n=document.createElement('p');n.className='mut';n.textContent=t('none');b.appendChild(n)}
  $('dlg').showModal()});
 $('dlgx').onclick=()=>$('dlg').close();

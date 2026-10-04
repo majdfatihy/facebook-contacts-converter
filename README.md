@@ -9,6 +9,7 @@ Convert the contacts you download from Facebook into files you can actually impo
 ## Features
 
 - Reads both Facebook files: `your_address_books.html` and `your_imported_contacts.json` (you can load both together)
+- Supports both the old (2024) and the new (2025+) Facebook HTML layouts, plus the JSON export. Mix any files in one go; the format is detected automatically
 - Fixes the garbled Arabic text that Facebook's JSON export produces
 - Keeps each contact's multiple phone numbers and emails together, plus the date it was added
 - Smart review before export:
@@ -50,6 +51,7 @@ Menu names differ between devices and app versions.
 
 - Your files are processed **locally in the browser**. They are never uploaded to any server.
 - Only your language and theme preference are saved in `localStorage`.
+- The page uses Google Analytics (gtag) to count visits only. Nothing from your files or contacts is ever sent to it.
 - When you export Excel or ZIP, the page loads the open-source libraries [SheetJS](https://sheetjs.com/) and [JSZip](https://stuk.github.io/jszip/) from cdnjs. Only the library files are downloaded; none of your data is sent.
 
 ## Try it with fake data
