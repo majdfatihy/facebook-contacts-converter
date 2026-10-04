@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>محوّل جهات اتصال فيسبوك إلى Excel وvCard وGoogle | Facebook Contacts Converter</title>
+<meta name="description" content="حوّل ملف جهات الاتصال من فيسبوك (HTML أو JSON) إلى Excel أو vCard أو Google CSV مجاناً وبدون رفع بياناتك. Convert Facebook contacts export to Excel, vCard and Google CSV – free, private, in your browser.">
+<meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large">
+<meta name="color-scheme" content="light dark"><meta name="theme-color" content="#0a7a65">
+<link rel="canonical" href="https://majdfatihy.github.io/facebook-contacts-converter/">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website"><meta property="og:url" content="https://majdfatihy.github.io/facebook-contacts-converter/">
+<meta property="og:title" content="محوّل جهات اتصال فيسبوك | Facebook Contacts Converter">
+<meta property="og:description" content="Excel · vCard · Google CSV — مجاني وخاص، يعمل داخل متصفحك. Free & private, runs in your browser.">
+<meta property="og:image" content="https://majdfatihy.github.io/facebook-contacts-converter/og-image.png"><meta property="og:locale" content="ar_AR"><meta property="og:locale:alternate" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Facebook Contacts Converter","alternateName":"محوّل جهات اتصال فيسبوك","url":"https://majdfatihy.github.io/facebook-contacts-converter/","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","inLanguage":["ar","en"],"isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"Convert Facebook contacts export (HTML/JSON) to Excel, vCard and Google CSV in your browser without uploading data."}</script>
+<style>
+:root{--bg:#f4f7f6;--card:#fff;--tx:#14201d;--mut:#5d6f6a;--ac:#0a7a65;--on:#fff;--ac2:#e3f4f0;--bd:#d9e3e0;--hl:#ffe36b;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1715;--card:#17211f;--tx:#e8f1ef;--mut:#92a8a2;--ac:#2cc3a8;--ac2:#1b312d;--bd:#2a3a37;--hl:#7a6a10;--on:#06201b}}
+:root[data-theme="dark"]{--bg:#0f1715;--card:#17211f;--tx:#e8f1ef;--mut:#92a8a2;--ac:#2cc3a8;--ac2:#1b312d;--bd:#2a3a37;--hl:#7a6a10;--on:#06201b}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);font-family:system-ui,"Segoe UI",Tahoma,Arial,sans-serif;line-height:1.6}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--card);border-bottom:1px solid var(--bd);display:flex;align-items:center;gap:8px;padding:8px 14px}
+header h1{font-size:1.05rem;margin:0;flex:1}
+header button,.btn{font:inherit;background:var(--ac2);color:var(--tx);border:1px solid var(--bd);border-radius:9px;padding:4px 12px;cursor:pointer}
+main{max-width:980px;margin:0 auto;padding:16px 14px 30px}
+.sub{color:var(--mut);margin:0 0 14px}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:14px;margin-bottom:14px}
+#drop{border:2px dashed var(--ac);background:var(--ac2);text-align:center;cursor:pointer;padding:24px 12px}
+#drop b{display:block}#drop span,.mut{color:var(--mut);font-size:.88rem}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(118px,1fr));gap:8px}
+.tile{font:inherit;color:var(--tx);background:var(--ac2);border:2px solid transparent;border-radius:10px;padding:6px;cursor:pointer;text-align:center}
+.tile.on{border-color:var(--ac)}.tile b{display:block;font-size:1.25rem;color:var(--ac)}.tile span{font-size:.78rem;color:var(--mut)}
+.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-top:10px}
+input[type=search],select{padding:7px 10px;border-radius:9px;border:1px solid var(--bd);background:var(--bg);color:var(--tx);font:inherit}
+input[type=search]{flex:1;min-width:160px}
+.tw{max-height:58vh;overflow:auto;border:1px solid var(--bd);border-radius:10px;margin-top:10px}
+table{width:100%;border-collapse:collapse;font-size:.88rem}
+th,td{padding:6px 9px;text-align:start;border-bottom:1px solid var(--bd);vertical-align:top}
+th{position:sticky;top:0;background:var(--card);cursor:pointer;white-space:nowrap;z-index:1}
+td.p div,td.p{direction:ltr;text-align:start}
+html[dir=rtl] td.p div{text-align:right}
+mark{background:var(--hl);color:inherit;border-radius:3px;padding:0 1px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;margin-top:10px}
+.ex{font:inherit;text-align:start;background:var(--card);color:var(--tx);border:1px solid var(--bd);border-radius:12px;padding:9px 12px;cursor:pointer}
+.ex:hover{border-color:var(--ac)}.ex b{display:block;color:var(--ac)}.ex span{font-size:.8rem;color:var(--mut)}
+#msg{min-height:1.4em;color:var(--ac);font-size:.9rem}#msg.err{color:#d64545}
+.cl{display:flex;gap:6px;align-items:center;margin:3px 0}
+footer{border-top:1px solid var(--bd);padding:16px 14px;text-align:center;color:var(--mut);font-size:.88rem}
+footer a{color:var(--ac);margin:0 8px;cursor:pointer;text-decoration:underline}
+dialog{max-width:560px;width:92%;background:var(--card);color:var(--tx);border:1px solid var(--bd);border-radius:14px}
+dialog::backdrop{background:#0008}
+.fc{border:1px solid var(--bd);border-radius:12px;padding:12px}.fc h3{margin:0;font-size:1rem;color:var(--ac)}.fc ol{margin:6px 0;padding-inline-start:20px;font-size:.86rem}.fc input[type=number]{width:70px;padding:4px;border-radius:8px;border:1px solid var(--bd);background:var(--bg);color:var(--tx)}.fc .btn{margin-top:6px;background:var(--ac);color:var(--on);border-color:var(--ac)}
+#seo h2{font-size:1.05rem;margin:14px 0 6px}#seo summary{margin:4px 0}#seo [lang=en]{margin-top:18px;border-top:1px solid var(--bd);padding-top:6px}
+.hide{display:none}
+</style>
+</head>
+<body>
+<header>
+  <h1 data-i="title">محوّل جهات اتصال فيسبوك</h1>
+  <button id="bLang">EN</button><button id="bTheme">◐</button>
+</header>
+<main>
+<p class="sub" data-i="sub">حوّل ملفات جهات الاتصال من فيسبوك إلى Excel أو ملفات استيراد للهاتف.</p>
+<div class="card" id="drop" tabindex="0">
+  <b data-i="drop">اضغط لاختيار الملف أو اسحبه هنا (يمكن اختيار ملفين معاً)</b><span data-i="dropSub">your_address_books.html / your_imported_contacts.json</span>
+  <input type="file" id="file" aria-label="Upload file / رفع ملف" accept=".html,.htm,.json" multiple class="hide">
+</div>
+<p class="mut" data-i="priv">🔒 المعالجة تتم بالكامل داخل متصفحك ولا يُرفع أي شيء لأي خادم.</p>
+<div id="msg"></div>
+
+<section id="res" class="hide">
+ <div class="card">
+  <div class="tiles" id="tiles"></div>
+  <div class="row">
+    <label class="mut" data-i="merge">دمج:</label>
+    <select id="mode" aria-label="دمج / Merge"><option value="none" data-i="m0">بدون دمج</option><option value="ident" data-i="m1">دمج المتطابق (نفس الاسم والرقم)</option><option value="name" data-i="m2">دمج كل ما له نفس الاسم</option></select>
+    <label class="mut" data-i="home">الدولة المحلية:</label><select id="home" aria-label="الدولة المحلية / Home country"></select>
+    <label class="mut" data-i="ctry">الدولة:</label><select id="cf" aria-label="الدولة / Country"></select>
+  </div>
+  <div class="row">
+    <input type="search" id="q" aria-label="بحث / Search" data-ip="search" placeholder="ابحث في كل البيانات: اسم، رقم، بريد، دولة، تاريخ…">
+    <button class="btn" id="bAll"></button><button class="btn" id="bNone" data-i="clearSel">إلغاء التحديد</button>
+  </div>
+  <details style="margin-top:8px"><summary data-i="cols">ترتيب الأعمدة وإظهارها</summary><div id="colp"></div></details>
+  <div class="mut" id="cnt" style="margin-top:8px"></div>
+  <div class="tw"><table><thead><tr id="th"></tr></thead><tbody id="tb"></tbody></table></div>
+  <div class="row"><button class="btn hide" id="more"></button></div>
+ </div>
+ <div class="card">
+  <b id="expT"></b>
+  <div class="grid" id="fmts"></div>
+ </div>
+</section>
+<noscript><p class="card">يتطلب هذا الموقع تفعيل JavaScript. / This tool requires JavaScript.</p></noscript>
+<section class="card" id="seo">
+<div lang="ar" dir="rtl">
+<h2>كيف أحوّل جهات اتصال فيسبوك إلى هاتفي؟</h2>
+<ol><li>من فيسبوك: الإعدادات ← مركز الحسابات ← معلوماتك وأذونات ← تنزيل معلوماتك، واختر «دفاتر العناوين» أو «جهات الاتصال المستوردة» بصيغة HTML أو JSON (قد تختلف التسمية).</li><li>ارفع الملف هنا؛ كل المعالجة داخل متصفحك.</li><li>راجع النتائج، اختر الجهات، ثم صدّر vCard للهاتف أو Google CSV للكمبيوتر أو Excel للتعديل.</li></ol>
+<h2>أسئلة شائعة</h2>
+<details><summary>هل بياناتي آمنة؟</summary><p>نعم. لا يتم رفع أي ملف لأي خادم، والتحويل يتم بالكامل في المتصفح.</p></details>
+<details><summary>هل الأداة مجانية؟</summary><p>نعم، مجانية بالكامل وبدون تسجيل.</p></details>
+<details><summary>ما الملفات المدعومة؟</summary><p>your_address_books.html وyour_imported_contacts.json من تنزيل معلومات فيسبوك، ويمكن رفع الملفين معاً.</p></details>
+<details><summary>هل يمكنني التجربة ببيانات وهمية؟</summary><p>نعم: <a href="demo-address-books.html" download="your_address_books.html">ملف HTML تجريبي</a> و<a href="demo-imported-contacts.json" download="your_imported_contacts.json">ملف JSON تجريبي</a>.</p></details>
+</div>
+<div lang="en" dir="ltr">
+<h2>How do I convert Facebook contacts to my phone?</h2>
+<ol><li>On Facebook: Settings → Accounts Center → Your information and permissions → Download your information, and pick address books / imported contacts as HTML or JSON (labels may vary).</li><li>Upload the file here; everything is processed in your browser.</li><li>Review, select contacts, then export vCard for phones, Google CSV for desktop, or Excel for editing.</li></ol>
+<h2>FAQ</h2>
+<details><summary>Is my data safe?</summary><p>Yes. No file is uploaded to any server; conversion runs entirely in your browser.</p></details>
+<details><summary>Is it free?</summary><p>Yes, completely free, no sign-up.</p></details>
+<details><summary>Which files are supported?</summary><p>your_address_books.html and your_imported_contacts.json from Facebook's “Download your information”; you can upload both together.</p></details>
+<details><summary>Can I try it with fake data?</summary><p>Yes: <a href="demo-address-books.html" download="your_address_books.html">sample HTML</a> and <a href="demo-imported-contacts.json" download="your_imported_contacts.json">sample JSON</a>.</p></details>
+</div>
+</section>
+</main>
+<footer>
+  <div><a data-p="about">من نحن</a><a data-p="howto">طريقة الاستخدام</a><a data-p="privacy">الخصوصية</a><a data-p="terms">الشروط</a><a data-p="contact">اتصل بنا</a></div>
+  <div style="margin-top:8px">© <span id="yr"></span> — <span data-i="title">محوّل جهات اتصال فيسبوك</span></div>
+</footer>
+<dialog id="dlg"><div id="dlgb"></div><div class="row"><button class="btn" id="dlgx"></button></div></dialog>
+
+<script>
+const CONTACT_EMAIL=''; // ← ضع بريدك هنا / put your contact email here
+const $=id=>document.getElementById(id);
+const store={get:k=>{try{return localStorage.getItem(k)}catch(e){return null}},set:(k,v)=>{try{localStorage.setItem(k,v)}catch(e){}}};
+
+const T={
+ar:{title:'محوّل جهات اتصال فيسبوك',seoTitle:'محوّل جهات اتصال فيسبوك إلى Excel وvCard وGoogle',sub:'حوّل ملفات جهات الاتصال من فيسبوك إلى Excel أو ملفات استيراد للهاتف.',drop:'اضغط لاختيار الملف أو اسحبه هنا (يمكن اختيار ملفين معاً)',dropSub:'your_address_books.html / your_imported_contacts.json',priv:'🔒 المعالجة تتم بالكامل داخل متصفحك ولا يُرفع أي شيء لأي خادم.',
+ t_all:'الإجمالي',t_noPh:'بدون رقم هاتف',t_email:'لديها بريد',t_intl:'أرقام دولية',t_dExact:'مكرر (اسم+رقم)',t_dName:'نفس الاسم برقم مختلف',t_dPhone:'نفس الرقم باسم مختلف',t_bad:'أسماء تالفة',
+ merge:'دمج:',m0:'بدون دمج',m1:'دمج المتطابق (نفس الاسم والرقم)',m2:'دمج كل ما له نفس الاسم',home:'الدولة المحلية:',ctry:'الدولة:',auto:'تلقائي',allC:'كل الدول',
+ search:'ابحث في كل البيانات: اسم، رقم، بريد، دولة، تاريخ…',selAll:'تحديد كل النتائج',clearSel:'إلغاء التحديد',cols:'ترتيب الأعمدة وإظهارها',
+ c_name:'الاسم',c_phones:'أرقام الهاتف',c_emails:'البريد',c_country:'الدولة',c_date:'تاريخ الإضافة',
+ cnt:(a,b,s)=>`النتائج: ${a} من ${b} — المحدد: ${s}`,more:'عرض المزيد',expN:n=>`التصدير (${n} جهة اتصال)`,
+ loaded:n=>`تم استخراج ${n} جهة اتصال.`,none:'لم يتم العثور على جهات اتصال. تأكد أنه ملف جهات الاتصال من فيسبوك.',bad:n=>`تنبيه: ${n} اسم تالف في الملف الأصلي نفسه (من فيسبوك) ولا يمكن إصلاحه.`,
+ ok:(f,n)=>`تم تجهيز ${f} (${n} جهة اتصال)`,ren:'تم الحفظ بامتداد txt. غيّر الامتداد إلى vcf قبل الاستيراد.',cancel:'تم إلغاء الحفظ.',close:'إغلاق',lang:'EN',
+ th_a:'تلقائي',th_l:'فاتح',th_d:'داكن',
+ about:'من نحن',howto:'طريقة الاستخدام',privacy:'الخصوصية',terms:'الشروط',contact:'اتصل بنا',
+ P:{about:'أداة مجانية لتحويل ملفات جهات الاتصال التي تحمّلها من فيسبوك إلى Excel وإلى صيغ جاهزة للاستيراد في الهاتف وGoogle وOutlook.',
+ howto:'1) من فيسبوك حمّل معلوماتك واختر «دفاتر العناوين / جهات الاتصال المستوردة». 2) ارفع الملف هنا. 3) راجع النتائج وصفّها. 4) اختر الصيغة. أندرويد: جهات الاتصال ← استيراد ← ملف vcf. آيفون/Gmail: ارفع CSV إلى contacts.google.com.',
+ privacy:'كل المعالجة تتم داخل متصفحك. لا نرفع ملفاتك ولا نخزّن جهات اتصالك ولا نرسلها لأي طرف. الإعدادات (اللغة والمظهر) فقط تُحفظ محلياً في جهازك.',
+ terms:'الأداة مقدّمة كما هي دون ضمانات. أنت المسؤول عن البيانات التي تحوّلها وعن الاحتفاظ بنسخة احتياطية قبل أي استيراد، وعن التأكد من أن لديك حق استخدام هذه الجهات.',
+ contact:'للاقتراحات والمشاكل راسلنا:'},none:'ملاحظة: لا تحتوي ملفات فيسبوك على شركة أو ملاحظات؛ تحتوي فقط الاسم والأرقام/البريد وتاريخ الإضافة.'},
+en:{title:'Facebook Contacts Converter',seoTitle:'Facebook Contacts Converter – Excel, vCard & Google CSV',sub:'Convert Facebook contact exports to Excel or phone-ready import files.',drop:'Click to choose a file or drop it here (you can pick both files)',dropSub:'your_address_books.html / your_imported_contacts.json',priv:'🔒 Everything is processed in your browser. Nothing is uploaded to any server.',
+ t_all:'Total',t_noPh:'No phone number',t_email:'With email',t_intl:'International numbers',t_dExact:'Duplicates (name+number)',t_dName:'Same name, different number',t_dPhone:'Same number, different name',t_bad:'Corrupted names',
+ merge:'Merge:',m0:'No merging',m1:'Merge identical (same name & number)',m2:'Merge all with same name',home:'Home country:',ctry:'Country:',auto:'Auto',allC:'All countries',
+ search:'Search everything: name, number, email, country, date…',selAll:'Select all results',clearSel:'Clear selection',cols:'Column order & visibility',
+ c_name:'Name',c_phones:'Phone numbers',c_emails:'Email',c_country:'Country',c_date:'Date added',
+ cnt:(a,b,s)=>`Results: ${a} of ${b} — Selected: ${s}`,more:'Show more',expN:n=>`Export (${n} contacts)`,
+ loaded:n=>`Extracted ${n} contacts.`,none:'No contacts found. Make sure this is a Facebook contacts file.',bad:n=>`Warning: ${n} names are already corrupted in Facebook's own file and cannot be repaired.`,
+ ok:(f,n)=>`${f} is ready (${n} contacts)`,ren:'Saved as .txt. Rename to .vcf before importing.',cancel:'Save cancelled.',close:'Close',lang:'عربي',
+ th_a:'Auto',th_l:'Light',th_d:'Dark',
+ about:'About',howto:'How to use',privacy:'Privacy',terms:'Terms',contact:'Contact',
+ P:{about:'A free tool that converts the contact files you download from Facebook into Excel and import-ready formats for your phone, Google and Outlook.',
+ howto:'1) Download your information from Facebook (address books / imported contacts). 2) Upload the file here. 3) Review and clean the results. 4) Pick a format. Android: Contacts → Import → vcf file. iPhone/Gmail: upload the CSV at contacts.google.com.',
+ privacy:'All processing happens in your browser. We do not upload your files, store your contacts, or send them to anyone. Only your language and theme choice are saved locally on your device.',
+ terms:'The tool is provided as-is with no warranty. You are responsible for the data you convert, for keeping a backup before importing, and for having the right to use these contacts.',
+ contact:'For feedback and issues, email us:'},none:'Note: Facebook files contain no company or notes fields — only name, numbers/emails and the date added.'}
+};
+let LANG=store.get('lang')||((navigator.language||'en').toLowerCase().startsWith('ar')?'ar':'en');
+let THEME=store.get('theme')||'auto';
+const t=k=>T[LANG][k];
+
+// ---- countries ----
+const CC={};'1:US,7:RU,20:EG,27:ZA,30:GR,31:NL,32:BE,33:FR,34:ES,36:HU,39:IT,40:RO,41:CH,43:AT,44:GB,45:DK,46:SE,47:NO,48:PL,49:DE,52:MX,54:AR,55:BR,60:MY,61:AU,62:ID,63:PH,64:NZ,65:SG,66:TH,81:JP,82:KR,86:CN,90:TR,91:IN,92:PK,93:AF,94:LK,98:IR,212:MA,213:DZ,216:TN,218:LY,221:SN,234:NG,249:SD,251:ET,254:KE,351:PT,353:IE,357:CY,358:FI,380:UA,420:CZ,961:LB,962:JO,963:SY,964:IQ,965:KW,966:SA,967:YE,968:OM,970:PS,971:AE,972:IL,973:BH,974:QA'.split(',').forEach(x=>{const[a,b]=x.split(':');CC[a]=b});
+function cname(code){if(code==='?')return '?';try{return new Intl.DisplayNames([LANG],{type:'region'}).of(CC[code])||code}catch(e){return CC[code]||code}}
+function codeOf(p){if(p[0]!=='+')return null;const d=p.slice(1);for(const n of[3,2,1])if(CC[d.slice(0,n)])return d.slice(0,n);return '?'}
+
+// ---- parsing ----
+const NAME_L='اسم جهة الاتصال',POINT_L='نقطة اتصال';
+function fixMoji(s){if(typeof s!=='string'||!/[\u00c3\u00d8\u00d9]/.test(s))return s;try{return new TextDecoder('utf-8',{fatal:true}).decode(new Uint8Array([...s].map(c=>{const n=c.charCodeAt(0);if(n>255)throw 0;return n})))}catch(e){return s}}
+const digits=s=>s.replace(/[\u0660-\u0669]/g,c=>c.charCodeAt(0)-1632).replace(/[\u06f0-\u06f9]/g,c=>c.charCodeAt(0)-1776);
+const AM=['يناير','فبراير','مارس','أبريل','مايو','يونيو','يوليو','أغسطس','سبتمبر','أكتوبر','نوفمبر','ديسمبر'],EM=['jan','feb','mar','apr','may','jun','jul','aug','sep','oct','nov','dec'];
+function pdate(s){s=digits(s).replace(/[\u200e\u200f\u202a-\u202e]/g,'').trim();
+ const m=s.match(/(\S+)\s+(\d+),\s*(\d{4})\s+(\d+):(\d+)(?::(\d+))?\s*(\S*)/);
+ if(m){let mo=AM.indexOf(m[1]);if(mo<0)mo=EM.indexOf(m[1].slice(0,3).toLowerCase());
+  if(mo>=0){let h=+m[4];const pm=/^(م|pm)$/i.test(m[7]),am=/^(ص|am)$/i.test(m[7]);if(pm&&h<12)h+=12;if(am&&h===12)h=0;return new Date(+m[3],mo,+m[2],h,+m[5],+(m[6]||0))}}
+ const d=new Date(s);return isNaN(d)?null:d}
+function addPt(c,raw){raw=raw.trim();if(!raw)return;if(raw.includes('@')){const e=raw.replace(/\s/g,'');if(!c.emails.includes(e))c.emails.push(e)}else{let p=digits(raw).replace(/[^\d+]/g,'');if(p.startsWith('00'))p='+'+p.slice(2);if(p&&!c.phones.includes(p))c.phones.push(p)}}
+function parseJSON(txt){const a=JSON.parse(txt),rows=Array.isArray(a)?a:Object.values(a).flat(),out=[];
+ for(const r of rows){const v=((r&&r.label_values)||[]).filter(x=>x.value!==undefined).map(x=>({l:fixMoji(x.label),v:fixMoji(x.value)}));
+  const c={name:'',phones:[],emails:[],date:r.timestamp?new Date(r.timestamp*1000):null};
+  v.forEach(x=>{if(x.l===NAME_L)c.name=x.v.trim();else if(x.l===POINT_L)addPt(c,x.v)});
+  if(!c.name&&!c.phones.length&&!c.emails.length&&v.length>1){c.name=v[0].v.trim();addPt(c,v[1].v)}
+  out.push(c)}
+ return out}
+function parseHTML(txt){const d=new DOMParser().parseFromString(txt,'text/html'),out=[];
+ d.querySelectorAll('._a6-g').forEach(g=>{const n=g.querySelector('._a6-h'),dt=g.querySelector('._a72d');
+  const c={name:n?n.textContent.trim():'',phones:[],emails:[],date:dt?pdate(dt.textContent):null};
+  g.querySelectorAll('._a6_p').forEach(p=>addPt(c,p.textContent));out.push(c)});
+ return out}
+
+// ---- state ----
+let RAW=[],LIST=[],SEL=new Set(),F='all',SORT={k:null,d:1},LIM=100,HOME='';
+const COLS=[{k:'name',on:1},{k:'phones',on:1},{k:'emails',on:1},{k:'country',on:1},{k:'date',on:1}];
+const msg=(s,e)=>{const m=$('msg');m.textContent=s;m.className=e?'err':''};
+const isBad=n=>/\ufffd|Ã.|Â.|ï¿½/.test(n);
+
+function build(){
+ let L=RAW.map(c=>({...c,phones:[...c.phones],emails:[...c.emails]}));const mode=$('mode').value;
+ if(mode!=='none'){const out=[],idx=new Map();
+  for(const c of L){let g=null,keys=[];
+   if(mode==='name'){if(c.name)keys=[c.name]}else{const pts=[...c.phones,...c.emails];keys=pts.length?pts.map(p=>c.name+'|'+p):[c.name+'|']}
+   for(const k of keys)if(idx.has(k)){g=idx.get(k);break}
+   if(g){c.phones.forEach(p=>g.phones.includes(p)||g.phones.push(p));c.emails.forEach(p=>g.emails.includes(p)||g.emails.push(p));if(c.date&&(!g.date||c.date<g.date))g.date=c.date}else{g=c;out.push(c)}
+   keys.forEach(k=>idx.set(k,g))}
+  L=out}
+ const pm=new Map(),nm=new Map();
+ L.forEach((c,i)=>{c.id=i;c.codes=[...new Set(c.phones.map(codeOf).filter(Boolean))];
+  c.phones.forEach(p=>{pm.has(p)||pm.set(p,new Set());pm.get(p).add(c.name)});
+  nm.has(c.name)||nm.set(c.name,[]);nm.get(c.name).push(c)});
+ L.forEach(c=>{const same=c.name?nm.get(c.name).filter(o=>o!==c):[];
+  c.dPhone=c.phones.some(p=>pm.get(p).size>1);
+  c.dExact=same.some(o=>o.phones.some(p=>c.phones.includes(p)));
+  c.dName=same.some(o=>!o.phones.some(p=>c.phones.includes(p)));
+  c.bad=isBad(c.name)});
+ LIST=L;SEL=new Set();opts();
+}
+function opts(){ // country selects
+ const cnt={};LIST.forEach(c=>c.codes.forEach(k=>cnt[k]=(cnt[k]||0)+1));
+ const ks=Object.keys(cnt).sort((a,b)=>cnt[b]-cnt[a]);
+ const auto=ks[0]||'',hv=$('home').value,cv=$('cf').value;
+ $('home').innerHTML='';$('cf').innerHTML='';
+ const o=(s,v,x)=>{const e=document.createElement('option');e.value=v;e.textContent=x;s.appendChild(e)};
+ o($('home'),'',t('auto')+(auto?` (${cname(auto)})`:''));o($('cf'),'',t('allC'));
+ ks.forEach(k=>{o($('home'),k,`${cname(k)} (+${k})`);o($('cf'),k,`${cname(k)} (+${k}) — ${cnt[k]}`)});
+ $('home').value=ks.includes(hv)?hv:'';$('cf').value=ks.includes(cv)?cv:'';
+ HOME=$('home').value||auto;
+}
+const flagOf=c=>({all:1,noPh:!c.phones.length,email:c.emails.length>0,intl:c.codes.some(k=>k!==HOME),dExact:c.dExact,dName:c.dName,dPhone:c.dPhone,bad:c.bad});
+const fmtD=d=>d?new Intl.DateTimeFormat(LANG==='ar'?'ar-u-nu-latn':'en-GB',{dateStyle:'medium',timeStyle:'short'}).format(d):'';
+const cn=c=>c.codes.map(cname).join('، ');
+const hay=c=>[c.name,c.phones.join(' '),c.emails.join(' '),cn(c),fmtD(c.date)].join('\n').toLowerCase();
+
+function view(){
+ HOME=$('home').value||(()=>{const m={};LIST.forEach(c=>c.codes.forEach(k=>m[k]=(m[k]||0)+1));return Object.keys(m).sort((a,b)=>m[b]-m[a])[0]||''})();
+ const q=$('q').value.trim().toLowerCase(),cf=$('cf').value;
+ let V=LIST.filter(c=>flagOf(c)[F]&&(!cf||c.codes.includes(cf))&&(!q||hay(c).includes(q)));
+ if(SORT.k){const k=SORT.k,key=c=>k==='name'?c.name.toLowerCase():k==='phones'?c.phones[0]||'':k==='emails'?c.emails[0]||'':k==='country'?cn(c):(c.date?+c.date:0);
+  V=[...V].sort((a,b)=>{const x=key(a),y=key(b);return(typeof x==='number'?x-y:String(x).localeCompare(String(y)))*SORT.d})}
+ return V}
+
+function hl(s,q){const f=document.createDocumentFragment();s=String(s);if(!q){f.append(s);return f}
+ const l=s.toLowerCase();let p=0,j;while((j=l.indexOf(q,p))>-1){f.append(s.slice(p,j));const m=document.createElement('mark');m.textContent=s.slice(j,j+q.length);f.append(m);p=j+q.length}
+ f.append(s.slice(p));return f}
+
+function render(){
+ const V=view(),q=$('q').value.trim().toLowerCase(),vis=COLS.filter(c=>c.on);
+ // tiles
+ const tl=$('tiles');tl.innerHTML='';
+ ['all','noPh','email','intl','dExact','dName','dPhone','bad'].forEach(k=>{
+  const n=LIST.filter(c=>flagOf(c)[k]).length;if(k==='bad'&&!n)return;
+  const b=document.createElement('button');b.className='tile'+(F===k?' on':'');b.innerHTML='<b></b><span></span>';
+  b.firstChild.textContent=n;b.lastChild.textContent=t('t_'+k);b.onclick=()=>{F=k;LIM=100;render()};tl.appendChild(b)});
+ // head
+ const th=$('th');th.innerHTML='';
+ const h0=document.createElement('th'),ca=document.createElement('input');ca.type='checkbox';ca.checked=V.length>0&&V.every(c=>SEL.has(c.id));
+ ca.onchange=()=>{V.forEach(c=>ca.checked?SEL.add(c.id):SEL.delete(c.id));render()};h0.appendChild(ca);th.appendChild(h0);
+ vis.forEach(c=>{const e=document.createElement('th');e.textContent=t('c_'+c.k)+(SORT.k===c.k?(SORT.d>0?' ▲':' ▼'):'');
+  e.onclick=()=>{SORT=SORT.k===c.k?{k:c.k,d:-SORT.d}:{k:c.k,d:1};render()};th.appendChild(e)});
+ // body
+ const tb=$('tb');tb.innerHTML='';const fr=document.createDocumentFragment();
+ V.slice(0,LIM).forEach(c=>{const tr=document.createElement('tr'),td0=document.createElement('td'),cb=document.createElement('input');
+  cb.type='checkbox';cb.checked=SEL.has(c.id);cb.onchange=()=>{cb.checked?SEL.add(c.id):SEL.delete(c.id);cnt()};td0.appendChild(cb);tr.appendChild(td0);
+  vis.forEach(col=>{const td=document.createElement('td'),k=col.k;
+   if(k==='name'){const s=document.createElement('span');s.dir='auto';s.append(hl(c.name,q));td.appendChild(s)}
+   else if(k==='phones'||k==='emails'){td.className='p';c[k].forEach(v=>{const d=document.createElement('div');d.append(hl(v,q));td.appendChild(d)})}
+   else if(k==='country')td.append(hl(cn(c),q));
+   else td.append(hl(fmtD(c.date),q));
+   tr.appendChild(td)});fr.appendChild(tr)});
+ tb.appendChild(fr);
+ $('more').classList.toggle('hide',V.length<=LIM);$('more').textContent=t('more');
+ window._V=V;cnt();
+}
+function cnt(){const V=window._V||[];$('cnt').textContent=t('cnt')(V.length,LIST.length,SEL.size);$('expT').textContent=t('expN')(targets().length)}
+const targets=()=>SEL.size?LIST.filter(c=>SEL.has(c.id)):(window._V||[]);
+
+function colPanel(){const p=$('colp');p.innerHTML='';
+ COLS.forEach((c,i)=>{const d=document.createElement('div');d.className='cl';
+  const cb=document.createElement('input');cb.type='checkbox';cb.checked=!!c.on;cb.onchange=()=>{c.on=cb.checked?1:0;render()};
+  const s=document.createElement('span');s.textContent=t('c_'+c.k);s.style.flex='1';
+  const mk=(x,dx)=>{const b=document.createElement('button');b.className='btn';b.textContent=x;b.onclick=()=>{const j=i+dx;if(j<0||j>=COLS.length)return;[COLS[i],COLS[j]]=[COLS[j],COLS[i]];colPanel();render()};return b};
+  d.append(cb,s,mk('↑',-1),mk('↓',1));p.appendChild(d)})}
+
+// ---- exporters ----
+const q2=v=>'"'+String(v??'').replace(/"/g,'""')+'"',csv=r=>r.map(q2).join(',');
+const sp=n=>{const p=n.trim().split(/\s+/);return[p[0]||'',p.slice(1).join(' ')]};
+const ve=s=>String(s).replace(/\\/g,'\\\\').replace(/;/g,'\\;').replace(/,/g,'\\,').replace(/\n/g,'\\n');
+const mx=(L,k)=>Math.max(1,...L.map(c=>c[k].length));
+const cut=(s,n)=>[...s].slice(0,n).join('');
+function matrix(L){const cols=COLS.filter(c=>c.on),np=mx(L,'phones'),ne=mx(L,'emails'),H=[];
+ cols.forEach(c=>{if(c.k==='phones')for(let i=1;i<=np;i++)H.push(t('c_phones')+' '+i);else if(c.k==='emails')for(let i=1;i<=ne;i++)H.push(t('c_emails')+' '+i);else H.push(t('c_'+c.k))});
+ const R=L.map(c=>{const r=[];cols.forEach(o=>{if(o.k==='phones')for(let i=0;i<np;i++)r.push(c.phones[i]||'');else if(o.k==='emails')for(let i=0;i<ne;i++)r.push(c.emails[i]||'');else if(o.k==='name')r.push(c.name);else if(o.k==='country')r.push(cn(c));else r.push(c.date||'')});return r});
+ return[H,...R]}
+function make(f,L){
+ const B=(x,ty)=>new Blob([x],{type:ty});
+ if(f==='xlsx'){const ws=XLSX.utils.aoa_to_sheet(matrix(L),{cellDates:true}),m=matrix(L);
+  ws['!cols']=m[0].map(h=>({wch:/\d$/.test(h)?20:h===t('c_date')?20:30}));
+  Object.keys(ws).forEach(k=>{if(k[0]!=='!'&&ws[k].t==='d')ws[k].z='yyyy-mm-dd hh:mm'});
+  const wb=XLSX.utils.book_new();wb.Workbook={Views:[{RTL:LANG==='ar'}]};XLSX.utils.book_append_sheet(wb,ws,'Contacts');
+  return{n:'contacts.xlsx',d:new Blob([XLSX.write(wb,{type:'array',bookType:'xlsx',cellDates:true})])}}
+ if(f==='vcf')return{n:'contacts.vcf',d:B(L.map(c=>{const[a,b]=sp(c.name);return['BEGIN:VCARD','VERSION:3.0',`N:${ve(b)};${ve(a)};;;`,`FN:${ve(c.name||c.phones[0]||c.emails[0])}`,...c.phones.map(p=>'TEL;TYPE=CELL:'+p),...c.emails.map(e=>'EMAIL;TYPE=INTERNET:'+e),'END:VCARD'].join('\r\n')}).join('\r\n')+'\r\n','text/vcard;charset=utf-8')};
+ if(f==='sim'){const nl=Math.max(1,+$('simLen').value||12);
+  return{n:'sim-contacts.vcf',d:B(L.map(c=>{const nm=cut(c.name||c.phones[0],nl);return['BEGIN:VCARD','VERSION:3.0',`N:${ve(nm)};;;;`,`FN:${ve(nm)}`,'TEL;TYPE=CELL:'+c.phones[0],'END:VCARD'].join('\r\n')}).join('\r\n')+'\r\n','text/vcard;charset=utf-8')}}
+ const np=mx(L,'phones'),ne=mx(L,'emails'),H=['First Name','Last Name'];
+ for(let i=1;i<=np;i++)H.push(`Phone ${i} - Label`,`Phone ${i} - Value`);for(let i=1;i<=ne;i++)H.push(`E-mail ${i} - Label`,`E-mail ${i} - Value`);
+ const R=L.map(c=>{const r=[...sp(c.name)];for(let i=0;i<np;i++)r.push(c.phones[i]?'Mobile':'',c.phones[i]||'');for(let i=0;i<ne;i++)r.push(c.emails[i]?'Other':'',c.emails[i]||'');return r});
+ return{n:'google-contacts.csv',d:B('\ufeff'+[H,...R].map(csv).join('\r\n'),'text/csv;charset=utf-8')}}
+function loadJS(u){return new Promise((ok,no)=>{const e=document.createElement('script');e.src=u;e.onload=ok;e.onerror=()=>no(new Error('Failed to load '+u));document.head.appendChild(e)})}
+function anchor(n,b){const u=URL.createObjectURL(b),a=document.createElement('a');a.href=u;a.download=n;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(u),4000)}
+async function zipFiles(files,name){if(typeof JSZip==='undefined')await loadJS('https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js');const z=new JSZip();files.forEach(f=>z.file(f.n,f.d));return{n:name,d:await z.generateAsync({type:'blob'})}}
+async function save(n,b){let dl=null;try{dl=window.claude&&window.claude.use?await window.claude.use('downloads'):null}catch(e){}
+ if(!dl){anchor(n,b);return'saved'}
+ try{await dl.save({filename:n,data:b});return'saved'}catch(e){
+  if(e&&e.code==='declined')return'declined';
+  if(e&&e.code==='rejected_extension'&&/\.vcf$/.test(n)){try{const z=await zipFiles([{n,d:b}],n.replace(/\.vcf$/,'.zip'));await dl.save({filename:z.n,data:z.d});return'zipped'}catch(x){return'declined'}}
+  throw e}}
+async function doExport(f){let L=targets();if(!L.length)return;const ar=LANG==='ar';let skipped=0;
+ if(f!=='xlsx'){const k=L.filter(c=>f==='sim'?c.phones.length:(c.phones.length||c.emails.length));skipped=L.length-k.length;L=k;
+  if(!L.length){msg(ar?'لا توجد جهات تحتوي رقماً في التحديد الحالي.':'No contacts with a number in the current selection.',true);return}}
+ const lim=f==='vcf'?1000:f==='google'?3000:f==='sim'?Math.max(1,+$('simCap').value||200):Infinity,parts=[];
+ for(let i=0;i<L.length;i+=lim)parts.push(L.slice(i,i+lim));
+ try{if(f==='xlsx'&&typeof XLSX==='undefined')await loadJS('https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js');const files=parts.map((p,i)=>{const o=make(f,p);if(parts.length>1)o.n=o.n.replace(/(\.\w+)$/,'-'+(i+1)+'$1');return o});
+  let r,name;
+  if(files.length>1){const z=await zipFiles(files,files[0].n.replace(/-1\.\w+$/,'.zip'));name=z.n;r=await save(z.n,z.d);if(r==='saved')r='zipped'}
+  else{name=files[0].n;r=await save(name,files[0].d)}
+  if(r==='declined'){msg(t('cancel'));return}
+  let m=t('ok')(name,L.length);
+  if(parts.length>1)m+=ar?` — قُسّمت إلى ${parts.length} ملفات (${lim} جهة كحد أقصى لكل ملف).`:` — split into ${parts.length} files (max ${lim} contacts each).`;
+  if(r==='zipped')m+=ar?' — فكّ ضغط ملف ZIP أولاً ثم استورد ملفات vcf/csv الموجودة بداخله.':' — unzip the ZIP first, then import the vcf/csv files inside.';
+  if(skipped)m+=ar?` — استُبعدت ${skipped} جهة بلا رقم.`:` — ${skipped} contacts without a number were skipped.`;
+  msg(m)}catch(e){msg(e.message||String(e),true)}}
+
+// ---- i18n / theme ----
+const FM={
+ar:{xlsx:{h:'Excel (.xlsx)',w:'للعرض والتعديل على الكمبيوتر فقط. غير قابل للاستيراد مباشرة على الهاتف أو جوجل.',s:['افتحه بـ Excel أو Google Sheets','الأعمدة حسب اختيارك في «ترتيب الأعمدة»']},
+ vcf:{h:'vCard (.vcf) — الأنسب للهاتف',w:'يعمل على أندرويد (تطبيق جهات الاتصال) وآيفون وجوجل على الكمبيوتر. كل ملف ≤ 1000 جهة.',s:['أندرويد: جهات الاتصال ← القائمة ☰ ← الإعدادات أو «إصلاح وإدارة» ← استيراد من ملف ← vCard ← اختر الملف واختر حساب Google','آيفون: افتح الملف من تطبيق الملفات ثم «إضافة كل جهات الاتصال»','كمبيوتر: contacts.google.com ← استيراد ← اختر الملف']},
+ google:{h:'Google Contacts (CSV) — للكمبيوتر فقط',w:'لا يقبله تطبيق جهات الاتصال في الهاتف، فقط موقع جوجل. كل ملف ≤ 3000 جهة (حد جوجل الرسمي).',s:['افتح contacts.google.com من متصفح الكمبيوتر','استيراد ← اختر ملف CSV ← استيراد','ثم تظهر الجهات تلقائياً على هاتفك المربوط بالحساب']},
+ sim:{h:'شريحة SIM (vcf مخفّف)',w:'اسم واحد + رقم واحد فقط لكل جهة، والاسم يُقصّ. سعة الشرائح تختلف حسب الشريحة والجهاز.',s:['اضبط السعة والحد الأقصى لطول الاسم أدناه (يُنصح بتجربة 20 جهة أولاً)','أندرويد: جهات الاتصال ← استيراد من ملف ← اختر الملف، واختر SIM كمكان الحفظ إن ظهر الخيار','إن لم يظهر SIM: استورده للهاتف ثم انسخه للشريحة من إعدادات التطبيق (الاسم يختلف حسب الجهاز)','استورد ملفاً واحداً في كل مرة'],b:'تصدير'}},
+en:{xlsx:{h:'Excel (.xlsx)',w:'For viewing/editing on a computer only. Not directly importable on a phone or Google.',s:['Open in Excel or Google Sheets','Columns follow your “Column order” choice']},
+ vcf:{h:'vCard (.vcf) — best for phones',w:'Works on Android (Contacts app), iPhone and Google on desktop. Max 1000 contacts per file.',s:['Android: Contacts → menu ☰ → Settings or “Fix & manage” → Import from file → vCard → pick the file and a Google account','iPhone: open the file from the Files app, then “Add all contacts”','Desktop: contacts.google.com → Import → choose the file']},
+ google:{h:'Google Contacts (CSV) — computer only',w:'The phone Contacts app does not accept CSV, only the Google website. Max 3000 contacts per file (Google’s official limit).',s:['Open contacts.google.com in a desktop browser','Import → choose the CSV → Import','Contacts then sync to your phone signed in to that account']},
+ sim:{h:'SIM card (light vcf)',w:'One name + one number per contact, name is cut. SIM capacity varies by card and device.',s:['Set capacity and max name length below (try 20 contacts first)','Android: Contacts → Import from file → choose the file, pick SIM as destination if offered','If SIM is not offered: import to the phone, then copy to SIM from the app settings (name varies by device)','Import one file at a time'],b:'Export'}}};
+function fmts(){const ov={c:$('simCap')&&$('simCap').value,l:$('simLen')&&$('simLen').value};const g=$('fmts');g.innerHTML='';const X=FM[LANG];
+ ['vcf','google','sim','xlsx'].forEach(f=>{const d=document.createElement('div');d.className='fc';const o=X[f];
+  const h=document.createElement('h3');h.textContent=o.h;const w=document.createElement('p');w.className='mut';w.textContent=o.w;
+  const ol=document.createElement('ol');o.s.forEach(x=>{const li=document.createElement('li');li.textContent=x;ol.appendChild(li)});
+  d.append(h,w,ol);
+  if(f==='sim'){const r=document.createElement('div');r.className='cl';const mk=(id,v)=>{const i=document.createElement('input');i.type='number';i.id=id;i.min=1;i.value=(id==='simCap'?ov.c:ov.l)||v;return i};
+   const l1=document.createElement('span');l1.textContent=LANG==='ar'?'السعة':'Capacity';const l2=document.createElement('span');l2.textContent=LANG==='ar'?'طول الاسم':'Name length';
+   r.append(l1,mk('simCap',200),l2,mk('simLen',12));d.appendChild(r);}
+  const b=document.createElement('button');b.className='btn';b.textContent=LANG==='ar'?'تصدير':'Export';b.onclick=()=>doExport(f);d.appendChild(b);g.appendChild(d)})}
+function applyLang(){const h=document.documentElement;h.lang=LANG;h.dir=LANG==='ar'?'rtl':'ltr';document.title=t('seoTitle');
+ document.querySelectorAll('[data-i]').forEach(e=>e.textContent=t(e.dataset.i));
+ document.querySelectorAll('[data-ip]').forEach(e=>e.placeholder=t(e.dataset.ip));
+ document.querySelectorAll('[data-p]').forEach(e=>e.textContent=t(e.dataset.p));
+ $('bLang').textContent=t('lang');$('dlgx').textContent=t('close');$('bAll').textContent=t('selAll');$('yr').textContent=new Date().getFullYear();
+ applyTheme();fmts();colPanel();if(LIST.length){opts();render()}}
+function applyTheme(){const r=document.documentElement;THEME==='auto'?r.removeAttribute('data-theme'):r.setAttribute('data-theme',THEME);$('bTheme').textContent='◐ '+t('th_'+THEME[0])}
+$('bLang').onclick=()=>{LANG=LANG==='ar'?'en':'ar';store.set('lang',LANG);applyLang()};
+$('bTheme').onclick=()=>{THEME={auto:'light',light:'dark',dark:'auto'}[THEME];store.set('theme',THEME);applyTheme()};
+document.querySelectorAll('[data-p]').forEach(a=>a.onclick=()=>{const k=a.dataset.p,b=$('dlgb');b.innerHTML='';
+ const h=document.createElement('h3'),p=document.createElement('p');h.textContent=t(k);p.textContent=t('P')[k];b.append(h,p);
+ if(k==='contact'){if(CONTACT_EMAIL){const l=document.createElement('a');l.href='mailto:'+CONTACT_EMAIL;l.textContent=CONTACT_EMAIL;b.appendChild(l)}}
+ if(k==='about'||k==='howto'){const n=document.createElement('p');n.className='mut';n.textContent=t('none');b.appendChild(n)}
+ $('dlg').showModal()});
+$('dlgx').onclick=()=>$('dlg').close();
+
+// ---- wiring ----
+async function load(files){if(!files||!files.length)return;msg('…');let all=[],html=false;
+ try{for(const f of files){const x=await f.text(),s=x.trimStart();if(s[0]==='['||s[0]==='{')all=all.concat(parseJSON(x));else{html=true;all=all.concat(parseHTML(x))}}}
+ catch(e){msg(e.message,true);return}
+ if(!all.length){msg(t('none'),true);$('res').classList.add('hide');return}
+ RAW=all;$('mode').value=(html||files.length>1)?'ident':'name';F='all';LIM=100;SORT={k:null,d:1};
+ build();$('res').classList.remove('hide');render();
+ const nb=LIST.filter(c=>c.bad).length;msg(t('loaded')(LIST.length)+(nb?' '+t('bad')(nb):''),false)}
+const drop=$('drop'),file=$('file');
+drop.onclick=()=>file.click();drop.onkeydown=e=>{if(e.key==='Enter'||e.key===' ')file.click()};
+file.onchange=()=>load([...file.files]);
+['dragover','dragenter'].forEach(ev=>drop.addEventListener(ev,e=>e.preventDefault()));
+drop.addEventListener('drop',e=>{e.preventDefault();load([...e.dataTransfer.files])});
+$('mode').onchange=()=>{build();render()};
+$('home').onchange=render;$('cf').onchange=()=>{LIM=100;render()};
+let tm;$('q').oninput=()=>{clearTimeout(tm);tm=setTimeout(()=>{LIM=100;render()},150)};
+$('more').onclick=()=>{LIM+=200;render()};
+$('bAll').onclick=()=>{(window._V||[]).forEach(c=>SEL.add(c.id));render()};
+$('bNone').onclick=()=>{SEL.clear();render()};
+if(window.matchMedia)matchMedia('(prefers-color-scheme: dark)').addEventListener&&matchMedia('(prefers-color-scheme: dark)').addEventListener('change',applyTheme);
+applyLang();
+</script>
+</body>
+</html>
