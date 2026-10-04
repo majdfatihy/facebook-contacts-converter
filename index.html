@@ -122,7 +122,7 @@ dialog::backdrop{background:#0008}
 <dialog id="dlg"><div id="dlgb"></div><div class="row"><button class="btn" id="dlgx"></button></div></dialog>
 
 <script>
-const CONTACT_EMAIL='fthymajd3701@gmail.com'; // ← ضع بريدك هنا / put your contact email here
+const CONTACT_EMAIL=''; // ← ضع بريدك هنا / put your contact email here
 const $=id=>document.getElementById(id);
 const store={get:k=>{try{return localStorage.getItem(k)}catch(e){return null}},set:(k,v)=>{try{localStorage.setItem(k,v)}catch(e){}}};
 
@@ -169,7 +169,7 @@ function codeOf(p){if(p[0]!=='+')return null;const d=p.slice(1);for(const n of[3
 
 // ---- parsing ----
 const NAME_L='اسم جهة الاتصال',POINT_L='نقطة اتصال';
-function fixMoji(s){if(typeof s!=='string'||!/[\u00c3\u00d8\u00d9]/.test(s))return s;try{return new TextDecoder('utf-8',{fatal:true}).decode(new Uint8Array([...s].map(c=>{const n=c.charCodeAt(0);if(n>255)throw 0;return n})))}catch(e){return s}}
+function fixMoji(s){if(typeof s!=='string'||!/[\u00c3\u00d8\u00d9\u00e2\u00f0\u00ef]/.test(s))return s;try{return new TextDecoder('utf-8',{fatal:true}).decode(new Uint8Array([...s].map(c=>{const n=c.charCodeAt(0);if(n>255)throw 0;return n})))}catch(e){return s}}
 const digits=s=>s.replace(/[\u0660-\u0669]/g,c=>c.charCodeAt(0)-1632).replace(/[\u06f0-\u06f9]/g,c=>c.charCodeAt(0)-1776);
 const AM=['يناير','فبراير','مارس','أبريل','مايو','يونيو','يوليو','أغسطس','سبتمبر','أكتوبر','نوفمبر','ديسمبر'],EM=['jan','feb','mar','apr','may','jun','jul','aug','sep','oct','nov','dec'];
 function pdate(s){s=digits(s).replace(/[\u200e\u200f\u202a-\u202e]/g,'').trim();
@@ -185,10 +185,30 @@ function parseJSON(txt){const a=JSON.parse(txt),rows=Array.isArray(a)?a:Object.v
   if(!c.name&&!c.phones.length&&!c.emails.length&&v.length>1){c.name=v[0].v.trim();addPt(c,v[1].v)}
   out.push(c)}
  return out}
-function parseHTML(txt){const d=new DOMParser().parseFromString(txt,'text/html'),out=[];
+function parseHTML(txt){const d=new DOMParser().parseFromString(txt,'text/html');
+ // Old Facebook format (2024): one div per contact, all of its numbers grouped together
+ if(d.querySelector('._a6-h'))return parseHTMLOld(d);
+ // New format (2025+): one <table> per record, rows of "label | value"
+ return parseHTMLTables(d)}
+function parseHTMLOld(d){const out=[];
  d.querySelectorAll('._a6-g').forEach(g=>{const n=g.querySelector('._a6-h'),dt=g.querySelector('._a72d');
   const c={name:n?n.textContent.trim():'',phones:[],emails:[],date:dt?pdate(dt.textContent):null};
   g.querySelectorAll('._a6_p').forEach(p=>addPt(c,p.textContent));out.push(c)});
+ return out}
+function parseHTMLTables(d){const out=[],tabs=[...d.querySelectorAll('table')];
+ for(const tb of tabs){
+  const rows=[...tb.querySelectorAll('tr')].map(tr=>{const td=tr.querySelectorAll('td,th');return td.length>=2?{l:td[0].textContent.trim(),v:td[1].textContent.trim()}:null}).filter(Boolean);
+  if(!rows.length)continue;
+  const c={name:'',phones:[],emails:[],date:null};let hit=false;
+  rows.forEach(x=>{if(x.l===NAME_L){c.name=x.v;hit=true}else if(x.l===POINT_L){addPt(c,x.v);hit=true}});
+  // unknown labels (other languages): rows are [update time, name, contact point]
+  if(!hit&&rows.length>=3){c.name=rows[1].v;addPt(c,rows[2].v);hit=c.name||c.phones.length||c.emails.length}
+  if(!hit)continue;
+  // date added = footer of the record (nearest ancestor that holds only this table)
+  let el=tb.parentElement,dt=null;
+  while(el&&el!==d.body){if(el.querySelectorAll('table').length>1)break;const f=el.querySelector('footer ._a72d,._a72d,footer');if(f){dt=f;break}el=el.parentElement}
+  c.date=dt?pdate(dt.textContent):pdate(rows[0].v);
+  out.push(c)}
  return out}
 
 // ---- state ----
