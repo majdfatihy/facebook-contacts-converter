@@ -9,7 +9,6 @@ Convert the contacts you download from Facebook into files you can actually impo
 ## Features
 
 - Reads both Facebook files: `your_address_books.html` and `your_imported_contacts.json` (you can load both together)
-- Supports both the old (2024) and the new (2025+) Facebook HTML layouts, plus the JSON export. Mix any files in one go; the format is detected automatically
 - Fixes the garbled Arabic text that Facebook's JSON export produces
 - Keeps each contact's multiple phone numbers and emails together, plus the date it was added
 - Smart review before export:
@@ -51,8 +50,15 @@ Menu names differ between devices and app versions.
 
 - Your files are processed **locally in the browser**. They are never uploaded to any server.
 - Only your language and theme preference are saved in `localStorage`.
-- The page uses Google Analytics (gtag) to count visits only. Nothing from your files or contacts is ever sent to it.
 - When you export Excel or ZIP, the page loads the open-source libraries [SheetJS](https://sheetjs.com/) and [JSZip](https://stuk.github.io/jszip/) from cdnjs. Only the library files are downloaded; none of your data is sent.
+
+## Tutorial video
+
+The explainer video is set by `tutorial.id` in `links.js` (leave it empty to hide the video everywhere). It uses a click-to-load player on `youtube-nocookie.com`, so nothing is requested from YouTube until the visitor presses play (the guide page also loads the video thumbnail).
+
+## Ads
+
+The public site shows Adsterra ads. All ad code lives in a single file, `adsterra.js`, so it is easy to disable (set `ENABLED=false` or remove its `<script>` tag) or replace with another network. On the converter page ads run in sandboxed iframes that cannot access your files or contacts. A page-level ad script is only allowed on the guide page, which handles no user data.
 
 ## Try it with fake data
 
@@ -78,6 +84,9 @@ python3 -m http.server 8000   # then open http://localhost:8000
 | File | Purpose |
 |---|---|
 | `index.html` | The whole tool (HTML + CSS + JS) with SEO metadata |
+| `guide.html` | Tutorial / promo page |
+| `adsterra.js` | All Adsterra ad code and placement rules |
+| `links.js` | Social links (YouTube, Facebook, Instagram, WhatsApp, Telegram), edit them in one place |
 | `robots.txt`, `sitemap.xml` | Search engine crawling |
 | `favicon.svg`, `og-image.png` | Icon and social preview image |
 | `demo-*.html / .json` | Fake sample data |

@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>دليل نقل جهات اتصال فيسبوك إلى الهاتف وجوجل | Facebook Contacts Guide</title>
+<meta name="description" content="دليل خطوة بخطوة لتحويل جهات اتصال فيسبوك إلى vCard أو Google CSV أو Excel واستيرادها على أندرويد وآيفون وجوجل وSIM. Step-by-step guide to move Facebook contacts to your phone.">
+<meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large">
+<meta name="color-scheme" content="light dark"><meta name="theme-color" content="#0a5e50">
+<link rel="canonical" href="https://majdfatihy.github.io/facebook-contacts-converter/guide.html">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="article"><meta property="og:url" content="https://majdfatihy.github.io/facebook-contacts-converter/guide.html">
+<meta property="og:title" content="انقل جهات اتصال فيسبوك إلى هاتفك | Move Facebook contacts to your phone">
+<meta property="og:description" content="مجاني وخاص وبدون رفع بياناتك. Free, private, runs in your browser.">
+<meta property="og:image" content="https://majdfatihy.github.io/facebook-contacts-converter/og-image.png"><meta name="twitter:card" content="summary_large_image">
+<style>
+:root{--bg:#f4f7f6;--card:#fff;--tx:#14201d;--mut:#4f625d;--ac:#0a7a65;--on:#fff;--ac2:#e3f4f0;--bd:#d9e3e0;--h1:#0a5e50;--h2:#0a7a65;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1715;--card:#17211f;--tx:#e8f1ef;--mut:#9bb1ab;--ac:#2cc3a8;--on:#06201b;--ac2:#1b312d;--bd:#2a3a37;--h1:#0e2a25;--h2:#124a3f}}
+:root[data-theme="dark"]{--bg:#0f1715;--card:#17211f;--tx:#e8f1ef;--mut:#9bb1ab;--ac:#2cc3a8;--on:#06201b;--ac2:#1b312d;--bd:#2a3a37;--h1:#0e2a25;--h2:#124a3f}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--tx);font-family:system-ui,"Segoe UI",Tahoma,Arial,sans-serif;line-height:1.7}
+html[lang=en] .a,html[lang=ar] .e{display:none}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--card);border-bottom:1px solid var(--bd);display:flex;align-items:center;gap:8px;padding:8px 14px}
+header a.logo{flex:1;font-weight:700;color:var(--tx);text-decoration:none}
+.tb{font:inherit;background:var(--ac2);color:var(--tx);border:1px solid var(--bd);border-radius:9px;padding:4px 12px;cursor:pointer}
+.hero{background:linear-gradient(135deg,var(--h1),var(--h2));color:#fff;text-align:center;padding:44px 16px 52px}
+.hero h1{font-size:clamp(1.6rem,6vw,2.4rem);line-height:1.3;margin:0 auto 12px;max-width:760px}
+.hero p{max-width:640px;margin:0 auto 22px;font-size:1.05rem;opacity:.95}
+.cta{display:inline-block;background:#fff;color:#0a5e50;font-weight:700;text-decoration:none;border-radius:12px;padding:12px 26px;margin:4px}
+.cta.o{background:transparent;color:#fff;border:2px solid #fff}
+.badges{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:22px}
+.badges span{background:#ffffff26;border-radius:99px;padding:3px 14px;font-size:.88rem}
+main{max-width:900px;margin:0 auto;padding:8px 14px 30px}
+section{margin:34px 0}
+h2{font-size:1.4rem;margin:0 0 6px}h3{margin:0;font-size:1.02rem}
+.lead{color:var(--mut);margin:0 0 16px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:14px}
+.card p{margin:6px 0 0;color:var(--mut);font-size:.92rem}
+.steps{counter-reset:s;list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.steps li{counter-increment:s;background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:14px 14px 14px 14px;display:flex;gap:12px}
+.steps li::before{content:counter(s);flex:none;width:34px;height:34px;border-radius:50%;background:var(--ac);color:var(--on);font-weight:700;display:grid;place-items:center}
+.steps b{display:block}.steps span{color:var(--mut);font-size:.92rem}
+details{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:10px 14px;margin:8px 0}
+summary{cursor:pointer;font-weight:600}
+details ol{margin:8px 0 2px;padding-inline-start:22px}
+.tag{display:inline-block;background:var(--ac2);color:var(--ac);border-radius:8px;padding:0 8px;font-size:.78rem;font-weight:600;margin-inline-start:6px}
+.tip{background:var(--ac2);border-radius:12px;padding:10px 14px;margin-top:12px;font-size:.92rem}
+.band{background:linear-gradient(135deg,var(--h1),var(--h2));color:#fff;border-radius:18px;text-align:center;padding:30px 16px;margin:34px 0}
+.band h2{margin-bottom:12px}
+footer{border-top:1px solid var(--bd);padding:18px 14px;text-align:center;color:var(--mut);font-size:.88rem}
+footer a,.lnk{color:var(--ac);margin:0 8px}
+a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var(--ac);outline-offset:2px}
+</style>
+</head>
+<body data-ads="open">
+<header>
+  <a class="logo" href="./">📇 <span class="a">محوّل جهات فيسبوك</span><span class="e">Contacts Converter</span></a>
+  <button class="tb" id="bl">EN</button><button class="tb" id="bt">◐</button>
+</header>
+
+<div class="hero">
+  <h1><span class="a">انقل جهات اتصال فيسبوك إلى هاتفك في دقائق</span><span class="e">Move your Facebook contacts to your phone in minutes</span></h1>
+  <p><span class="a">فيسبوك يعطيك ملف HTML أو JSON لا يفتحه الهاتف. حوّله إلى vCard أو Google CSV أو Excel، مجاناً، وبدون رفع بياناتك لأي خادم.</span><span class="e">Facebook gives you an HTML or JSON file your phone can't open. Convert it to vCard, Google CSV or Excel — free, and without uploading your data to any server.</span></p>
+  <a class="cta" href="./"><span class="a">ابدأ التحويل الآن ←</span><span class="e">Start converting →</span></a>
+  <a class="cta o" href="#video"><span class="a">▶ شاهد الفيديو</span><span class="e">▶ Watch video</span></a>
+  <a class="cta o" href="#steps"><span class="a">شاهد الخطوات</span><span class="e">See the steps</span></a>
+  <div class="badges"><span class="a">مجاني</span><span class="a">يعمل داخل متصفحك</span><span class="a">بدون تسجيل</span><span class="a">عربي / English</span><span class="e">Free</span><span class="e">Runs in your browser</span><span class="e">No sign-up</span><span class="e">عربي / English</span></div>
+</div>
+
+<main>
+<section id="video">
+  <h2><span class="a">شاهد الفيديو: شرح الأداة وطريقة عملها</span><span class="e">Watch: how the tool works</span></h2>
+  <div data-video data-thumb="1"></div>
+</section>
+<div data-ad="top"></div>
+<section id="steps">
+  <h2><span class="a">4 خطوات فقط</span><span class="e">Just 4 steps</span></h2>
+  <p class="lead"><span class="a">من ملف فيسبوك إلى جهات اتصال على هاتفك.</span><span class="e">From a Facebook file to contacts on your phone.</span></p>
+  <ol class="steps a">
+    <li><div><b>حمّل بياناتك من فيسبوك</b><span>الإعدادات ← مركز الحسابات ← معلوماتك وأذوناتك ← تنزيل معلوماتك، ثم اختر «دفاتر العناوين» أو «جهات الاتصال المستوردة» بصيغة HTML أو JSON (قد تختلف التسمية).</span></div></li>
+    <li><div><b>ارفع الملف في الأداة</b><span>يمكن رفع الملفين معاً. تتم القراءة داخل متصفحك، ويُصلَح النص العربي المشوّه تلقائياً.</span></div></li>
+    <li><div><b>راجع ونظّف</b><span>اعرف عدد الجهات بلا رقم، والمكررة، والدولية. ابحث، وحدّد ما تريده، وادمج المتشابه.</span></div></li>
+    <li><div><b>صدّر واستورد</b><span>اختر الصيغة المناسبة لجهازك واتبع خطوات الاستيراد أدناه.</span></div></li>
+  </ol>
+  <ol class="steps e">
+    <li><div><b>Download your data from Facebook</b><span>Settings → Accounts Center → Your information and permissions → Download your information, then pick address books / imported contacts as HTML or JSON (labels may vary).</span></div></li>
+    <li><div><b>Upload the file to the tool</b><span>You can upload both files together. Reading happens in your browser and garbled Arabic text is repaired automatically.</span></div></li>
+    <li><div><b>Review and clean up</b><span>See how many contacts have no number, are duplicated or international. Search, select, and merge similar ones.</span></div></li>
+    <li><div><b>Export and import</b><span>Pick the format for your device and follow the import steps below.</span></div></li>
+  </ol>
+</section>
+
+<div data-ad="mid"></div>
+<section>
+  <h2><span class="a">أي صيغة أختار؟</span><span class="e">Which format should I pick?</span></h2>
+  <div class="grid a">
+    <div class="card"><h3>vCard (.vcf)<span class="tag">الأنسب للهاتف</span></h3><p>أندرويد وآيفون وجوجل. حتى 1000 جهة في الملف.</p></div>
+    <div class="card"><h3>Google CSV<span class="tag">كمبيوتر</span></h3><p>لموقع contacts.google.com فقط. حتى 3000 جهة في الملف.</p></div>
+    <div class="card"><h3>SIM<span class="tag">مخفّف</span></h3><p>اسم ورقم واحد لكل جهة، واسم مقصوص. السعة قابلة للتعديل (200 افتراضياً).</p></div>
+    <div class="card"><h3>Excel<span class="tag">للتعديل</span></h3><p>للعرض والتعديل على الكمبيوتر، وليس للاستيراد المباشر.</p></div>
+  </div>
+  <div class="grid e">
+    <div class="card"><h3>vCard (.vcf)<span class="tag">Best for phones</span></h3><p>Android, iPhone and Google. Up to 1000 contacts per file.</p></div>
+    <div class="card"><h3>Google CSV<span class="tag">Desktop</span></h3><p>For contacts.google.com only. Up to 3000 contacts per file.</p></div>
+    <div class="card"><h3>SIM<span class="tag">Light</span></h3><p>One name and number per contact, shortened name. Adjustable capacity (200 default).</p></div>
+    <div class="card"><h3>Excel<span class="tag">Editing</span></h3><p>For viewing and editing on a computer, not direct import.</p></div>
+  </div>
+</section>
+
+<section>
+  <h2><span class="a">كيف أستورد الملف؟</span><span class="e">How do I import the file?</span></h2>
+  <div class="a">
+    <details open><summary>أندرويد</summary><ol><li>افتح تطبيق جهات الاتصال.</li><li>الإعدادات (أو «إصلاح وإدارة») ← استيراد من ملف.</li><li>اختر vCard ثم ملف <bdi>.vcf</bdi>، واختر حساب Google.</li></ol></details>
+    <details><summary>آيفون</summary><ol><li>افتح ملف <bdi>.vcf</bdi> من تطبيق الملفات.</li><li>اضغط «إضافة كل جهات الاتصال».</li></ol></details>
+    <details><summary>Google على الكمبيوتر</summary><ol><li>افتح <bdi>contacts.google.com</bdi>.</li><li>استيراد ← اختر ملف vCard أو Google CSV ← استيراد.</li><li>ستظهر الجهات على هاتفك المربوط بنفس الحساب.</li></ol></details>
+    <details><summary>شريحة SIM</summary><ol><li>صدّر ملف SIM (جرّب 20 جهة أولاً).</li><li>استورده من تطبيق جهات الاتصال واختر SIM كمكان الحفظ إن ظهر الخيار.</li><li>إن لم يظهر: استورده للهاتف ثم انسخه للشريحة من إعدادات التطبيق (الاسم يختلف حسب الجهاز).</li></ol></details>
+  </div>
+  <div class="e">
+    <details open><summary>Android</summary><ol><li>Open the Contacts app.</li><li>Settings (or “Fix &amp; manage”) → Import from file.</li><li>Choose vCard, pick the <bdi>.vcf</bdi> file and a Google account.</li></ol></details>
+    <details><summary>iPhone</summary><ol><li>Open the <bdi>.vcf</bdi> file from the Files app.</li><li>Tap “Add all contacts”.</li></ol></details>
+    <details><summary>Google on desktop</summary><ol><li>Open <bdi>contacts.google.com</bdi>.</li><li>Import → choose the vCard or Google CSV → Import.</li><li>Contacts sync to your phone on the same account.</li></ol></details>
+    <details><summary>SIM card</summary><ol><li>Export the SIM file (try 20 contacts first).</li><li>Import it from the Contacts app and pick SIM as the destination if offered.</li><li>If not offered: import to the phone, then copy to SIM from the app settings (name varies by device).</li></ol></details>
+  </div>
+  <div class="tip a">💡 جرّب 20 جهة أولاً. استورد ملفاً واحداً في كل مرة. إن نزلت الملفات داخل ZIP فافتحه أولاً. الأسماء في القوائم تختلف بين الأجهزة.</div>
+  <div class="tip e">💡 Try 20 contacts first. Import one file at a time. If the files arrive in a ZIP, extract it first. Menu names vary between devices.</div>
+</section>
+
+<div data-ad="end"></div>
+<section>
+  <h2><span class="a">لماذا هذه الأداة؟</span><span class="e">Why this tool?</span></h2>
+  <div class="grid a">
+    <div class="card"><h3>🔒 خصوصية</h3><p>الملفات لا تُرفع لأي خادم. المعالجة كلها في متصفحك.</p></div>
+    <div class="card"><h3>🧹 مراجعة ذكية</h3><p>مكررات، جهات بلا رقم، أرقام دولية بتصنيف الدولة، وأسماء تالفة.</p></div>
+    <div class="card"><h3>🔤 عربي سليم</h3><p>إصلاح تشويه ترميز ملف JSON ودعم الأرقام الهندية.</p></div>
+    <div class="card"><h3>✂️ تقسيم تلقائي</h3><p>القوائم الكبيرة تُقسَّم وفق حدود الاستيراد.</p></div>
+  </div>
+  <div class="grid e">
+    <div class="card"><h3>🔒 Private</h3><p>Files are never uploaded. Everything runs in your browser.</p></div>
+    <div class="card"><h3>🧹 Smart review</h3><p>Duplicates, contacts without numbers, international numbers by country, corrupted names.</p></div>
+    <div class="card"><h3>🔤 Proper Arabic</h3><p>Repairs the garbled JSON encoding and supports Arabic-Indic digits.</p></div>
+    <div class="card"><h3>✂️ Auto-split</h3><p>Large lists are split to fit import limits.</p></div>
+  </div>
+  <p class="lead" style="margin-top:14px"><span class="a">ملفات فيسبوك لا تحتوي شركات ولا ملاحظات ولا عناوين؛ فقط الاسم والرقم أو البريد وتاريخ الإضافة.</span><span class="e">Facebook's files contain no companies, notes or addresses — only name, number/email and the date added.</span></p>
+</section>
+
+<section>
+  <h2><span class="a">جرّبها ببيانات وهمية</span><span class="e">Try it with fake data</span></h2>
+  <p class="lead a">نزّل الملفين وارفعهما في الأداة لترى كل الميزات دون استخدام جهاتك الحقيقية.</p>
+  <p class="lead e">Download both files and upload them to the tool to see every feature without using your real contacts.</p>
+  <a class="lnk" href="demo-address-books.html" download="your_address_books.html">your_address_books.html</a>
+  <a class="lnk" href="demo-imported-contacts.json" download="your_imported_contacts.json">your_imported_contacts.json</a>
+</section>
+
+<section>
+  <h2><span class="a">أسئلة شائعة</span><span class="e">FAQ</span></h2>
+  <div class="a">
+    <details><summary>هل بياناتي آمنة؟</summary><p>نعم، لا تُرسل ملفاتك لأي خادم. تُحمَّل مكتبتا Excel وZIP عند التصدير، وتظهر إعلانات Adsterra داخل إطارات معزولة لا تصل إلى ملفاتك.</p></details>
+    <details><summary>لماذا لا يفتح الهاتف ملف فيسبوك مباشرة؟</summary><p>لأنه HTML أو JSON وليس صيغة جهات اتصال. الأداة تحوله إلى vCard.</p></details>
+    <details><summary>هل يمكن استيراد CSV من تطبيق الهاتف؟</summary><p>لا، تطبيق جهات الاتصال يقبل vCard فقط؛ ملف CSV يُرفع من موقع Google على الكمبيوتر.</p></details>
+    <details><summary>لماذا استُبعدت بعض الجهات؟</summary><p>الجهات بلا رقم أو بريد لا تُصدَّر في vCard وGoogle CSV لأنها ستظهر فارغة.</p></details>
+  </div>
+  <div class="e">
+    <details><summary>Is my data safe?</summary><p>Yes, your files are never sent to a server. The Excel and ZIP libraries load when you export, and Adsterra ads appear inside isolated frames that cannot reach your files.</p></details>
+    <details><summary>Why can't my phone open the Facebook file?</summary><p>It is HTML or JSON, not a contacts format. The tool converts it to vCard.</p></details>
+    <details><summary>Can I import CSV from the phone app?</summary><p>No, the Contacts app accepts vCard only; CSV is uploaded on Google's website from a computer.</p></details>
+    <details><summary>Why were some contacts skipped?</summary><p>Contacts without a number or email are not exported in vCard and Google CSV because they would appear empty.</p></details>
+  </div>
+</section>
+
+<div data-ad="seo"></div>
+<div class="band">
+  <h2><span class="a">جاهز لنقل جهات اتصالك؟</span><span class="e">Ready to move your contacts?</span></h2>
+  <a class="cta" href="./"><span class="a">افتح الأداة مجاناً ←</span><span class="e">Open the free tool →</span></a>
+  <p style="margin:18px 0 8px"><span class="a">تابعنا وتواصل معنا</span><span class="e">Follow &amp; contact us</span></p>
+  <div class="social-links on-dark" style="margin:0"></div>
+</div>
+</main>
+<div data-ad="railL"></div><div data-ad="railR"></div>
+
+<footer>
+  <div class="social-links"></div>
+  <a href="./"><span class="a">الأداة</span><span class="e">Tool</span></a>
+  <a href="https://github.com/majdfatihy/facebook-contacts-converter" rel="noopener">GitHub</a>
+  <div style="margin-top:6px">© <span id="y"></span></div>
+</footer>
+
+<script>
+(function(){
+var d=document.documentElement,s=function(k,v){try{if(v===undefined)return localStorage.getItem(k);localStorage.setItem(k,v)}catch(e){return null}};
+var L=s('lang')||((navigator.language||'en').toLowerCase().indexOf('ar')===0?'ar':'en'),T=s('theme')||'auto';
+function lang(){d.lang=L;d.dir=L==='ar'?'rtl':'ltr';document.title=L==='ar'?'دليل نقل جهات اتصال فيسبوك إلى الهاتف وجوجل | Facebook Contacts Guide':'Move Facebook Contacts to Your Phone – Guide';document.getElementById('bl').textContent=L==='ar'?'EN':'عربي'}
+function th(){T==='auto'?d.removeAttribute('data-theme'):d.setAttribute('data-theme',T);document.getElementById('bt').textContent='◐ '+({auto:L==='ar'?'تلقائي':'Auto',light:L==='ar'?'فاتح':'Light',dark:L==='ar'?'داكن':'Dark'})[T]}
+document.getElementById('bl').onclick=function(){L=L==='ar'?'en':'ar';s('lang',L);lang();th()};
+document.getElementById('bt').onclick=function(){T={auto:'light',light:'dark',dark:'auto'}[T];s('theme',T);th()};
+document.getElementById('y').textContent=new Date().getFullYear();lang();th();
+})();
+</script>
+<script src="links.js" defer></script>
+<script src="adsterra.js" defer></script>
+</body>
+</html>
