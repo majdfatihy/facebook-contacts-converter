@@ -4,14 +4,14 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>محوّل جهات اتصال فيسبوك إلى Excel وvCard وGoogle | Facebook Contacts Converter</title>
-<meta name="description" content="حوّل ملف جهات الاتصال من فيسبوك (HTML أو JSON) إلى Excel أو vCard أو Google CSV مجاناً وبدون رفع بياناتك. Convert Facebook contacts export to Excel, vCard and Google CSV – free, private, in your browser.">
+<meta name="description" content="حوّل ملف جهات الاتصال من فيسبوك (HTML أو JSON) إلى Excel أو vCard أو Google CSV مجاناً وبدون رفع بياناتك. Convert Facebook contacts export to Excel, vCard and Google CSV – free, no sign-up, runs in your browser.">
 <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large">
 <meta name="color-scheme" content="light dark"><meta name="theme-color" content="#0a7a65">
 <link rel="canonical" href="https://majdfatihy.github.io/facebook-contacts-converter/">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <meta property="og:type" content="website"><meta property="og:url" content="https://majdfatihy.github.io/facebook-contacts-converter/">
 <meta property="og:title" content="محوّل جهات اتصال فيسبوك | Facebook Contacts Converter">
-<meta property="og:description" content="Excel · vCard · Google CSV — مجاني وخاص، يعمل داخل متصفحك. Free & private, runs in your browser.">
+<meta property="og:description" content="Excel · vCard · Google CSV — مجاني وبدون تسجيل، يعمل داخل متصفحك. Free, no sign-up, runs in your browser.">
 <meta property="og:image" content="https://majdfatihy.github.io/facebook-contacts-converter/og-image.png"><meta property="og:locale" content="ar_AR"><meta property="og:locale:alternate" content="en_US">
 <meta name="twitter:card" content="summary_large_image">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Facebook Contacts Converter","alternateName":"محوّل جهات اتصال فيسبوك","url":"https://majdfatihy.github.io/facebook-contacts-converter/","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","inLanguage":["ar","en"],"isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"Convert Facebook contacts export (HTML/JSON) to Excel, vCard and Google CSV in your browser without uploading data."}</script>
@@ -56,7 +56,7 @@ dialog::backdrop{background:#0008}
 .hide{display:none}
 </style>
 </head>
-<body>
+<body data-ads="open" data-ads-script="off">
 <header>
   <h1 data-i="title">محوّل جهات اتصال فيسبوك</h1>
   <button id="bLang">EN</button><button id="bTheme">◐</button>
@@ -67,7 +67,7 @@ dialog::backdrop{background:#0008}
   <b data-i="drop">اضغط لاختيار الملف أو اسحبه هنا (يمكن اختيار ملفين معاً)</b><span data-i="dropSub">your_address_books.html / your_imported_contacts.json</span>
   <input type="file" id="file" aria-label="Upload file / رفع ملف" accept=".html,.htm,.json" multiple class="hide">
 </div>
-<p class="mut" data-i="priv">🔒 المعالجة تتم بالكامل داخل متصفحك ولا يُرفع أي شيء لأي خادم.</p>
+<p class="mut" data-i="priv">🔒 لا نرفع ملفاتك لأي خادم؛ المعالجة داخل متصفحك. يعرض الموقع إعلانات من طرف ثالث، راجع «الخصوصية» قبل رفع بيانات حساسة.</p>
 <div id="msg"></div>
 <div data-ad="top"></div>
 
@@ -134,7 +134,7 @@ const $=id=>document.getElementById(id);
 const store={get:k=>{try{return localStorage.getItem(k)}catch(e){return null}},set:(k,v)=>{try{localStorage.setItem(k,v)}catch(e){}}};
 
 const T={
-ar:{title:'محوّل جهات اتصال فيسبوك',seoTitle:'محوّل جهات اتصال فيسبوك إلى Excel وvCard وGoogle',sub:'حوّل ملفات جهات الاتصال من فيسبوك إلى Excel أو ملفات استيراد للهاتف.',drop:'اضغط لاختيار الملف أو اسحبه هنا (يمكن اختيار ملفين معاً)',dropSub:'your_address_books.html / your_imported_contacts.json',priv:'🔒 المعالجة تتم بالكامل داخل متصفحك ولا يُرفع أي شيء لأي خادم.',
+ar:{title:'محوّل جهات اتصال فيسبوك',seoTitle:'محوّل جهات اتصال فيسبوك إلى Excel وvCard وGoogle',sub:'حوّل ملفات جهات الاتصال من فيسبوك إلى Excel أو ملفات استيراد للهاتف.',drop:'اضغط لاختيار الملف أو اسحبه هنا (يمكن اختيار ملفين معاً)',dropSub:'your_address_books.html / your_imported_contacts.json',priv:'🔒 لا نرفع ملفاتك لأي خادم؛ المعالجة داخل متصفحك. يعرض الموقع إعلانات من طرف ثالث، راجع «الخصوصية» قبل رفع بيانات حساسة.',
  t_all:'الإجمالي',t_noPh:'بدون رقم هاتف',t_email:'لديها بريد',t_intl:'أرقام دولية',t_dExact:'مكرر (اسم+رقم)',t_dName:'نفس الاسم برقم مختلف',t_dPhone:'نفس الرقم باسم مختلف',t_bad:'أسماء تالفة',
  merge:'دمج:',m0:'بدون دمج',m1:'دمج المتطابق (نفس الاسم والرقم)',m2:'دمج كل ما له نفس الاسم',home:'الدولة المحلية:',ctry:'الدولة:',auto:'تلقائي',allC:'كل الدول',
  search:'ابحث في كل البيانات: اسم، رقم، بريد، دولة، تاريخ…',selAll:'تحديد كل النتائج',clearSel:'إلغاء التحديد',cols:'ترتيب الأعمدة وإظهارها',
@@ -146,10 +146,10 @@ ar:{title:'محوّل جهات اتصال فيسبوك',seoTitle:'محوّل ج�
  about:'من نحن',howto:'طريقة الاستخدام',privacy:'الخصوصية',terms:'الشروط',contact:'اتصل بنا',
  P:{about:'أداة مجانية لتحويل ملفات جهات الاتصال التي تحمّلها من فيسبوك إلى Excel وإلى صيغ جاهزة للاستيراد في الهاتف وGoogle وOutlook.',
  howto:'1) من فيسبوك حمّل معلوماتك واختر «دفاتر العناوين / جهات الاتصال المستوردة». 2) ارفع الملف هنا. 3) راجع النتائج وصفّها. 4) اختر الصيغة. أندرويد: جهات الاتصال ← استيراد ← ملف vcf. آيفون/Gmail: ارفع CSV إلى contacts.google.com.',
- privacy:'كل المعالجة تتم داخل متصفحك. لا نرفع ملفاتك ولا نخزّن جهات اتصالك ولا نرسلها لأي طرف. الإعدادات (اللغة والمظهر) فقط تُحفظ محلياً في جهازك. يعرض الموقع إعلانات من شبكة Adsterra داخل إطارات معزولة لا تستطيع الوصول إلى ملفاتك أو جهات اتصالك، وقد تستخدم الشبكة ملفات تعريف ارتباط خاصة بها. ولا يُحمَّل فيديو الشرح من يوتيوب إلا عند الضغط على تشغيله.',
+ privacy:'كل المعالجة تتم داخل متصفحك. لا نرفع ملفاتك ولا نخزّن جهات اتصالك ولا نرسلها لأي طرف. الإعدادات (اللغة والمظهر) فقط تُحفظ محلياً في جهازك. يعرض الموقع إعلانات من شبكة Adsterra، وهي طرف ثالث تعمل إعلاناته داخل صفحة الأداة نفسها. نحن لا نرسل ملفاتك، لكن لا يمكننا ضمان ما تفعله سكربتات الإعلانات ولا منعها من قراءة ما يظهر في الصفحة، وقد تستخدم الشبكة ملفات تعريف ارتباط. إن كانت جهات اتصالك حساسة فعطّل الإعلانات بحاجب إعلانات قبل رفع الملف. ولا يُحمَّل فيديو الشرح من يوتيوب إلا عند الضغط على تشغيله.',
  terms:'الأداة مقدّمة كما هي دون ضمانات. أنت المسؤول عن البيانات التي تحوّلها وعن الاحتفاظ بنسخة احتياطية قبل أي استيراد، وعن التأكد من أن لديك حق استخدام هذه الجهات.',
  contact:'للاقتراحات والمشاكل تواصل معنا عبر:'},none:'ملاحظة: لا تحتوي ملفات فيسبوك على شركة أو ملاحظات؛ تحتوي فقط الاسم والأرقام/البريد وتاريخ الإضافة.'},
-en:{title:'Facebook Contacts Converter',seoTitle:'Facebook Contacts Converter – Excel, vCard & Google CSV',sub:'Convert Facebook contact exports to Excel or phone-ready import files.',drop:'Click to choose a file or drop it here (you can pick both files)',dropSub:'your_address_books.html / your_imported_contacts.json',priv:'🔒 Everything is processed in your browser. Nothing is uploaded to any server.',
+en:{title:'Facebook Contacts Converter',seoTitle:'Facebook Contacts Converter – Excel, vCard & Google CSV',sub:'Convert Facebook contact exports to Excel or phone-ready import files.',drop:'Click to choose a file or drop it here (you can pick both files)',dropSub:'your_address_books.html / your_imported_contacts.json',priv:'🔒 We do not upload your files; processing happens in your browser. The site shows third-party ads — see Privacy before loading sensitive data.',
  t_all:'Total',t_noPh:'No phone number',t_email:'With email',t_intl:'International numbers',t_dExact:'Duplicates (name+number)',t_dName:'Same name, different number',t_dPhone:'Same number, different name',t_bad:'Corrupted names',
  merge:'Merge:',m0:'No merging',m1:'Merge identical (same name & number)',m2:'Merge all with same name',home:'Home country:',ctry:'Country:',auto:'Auto',allC:'All countries',
  search:'Search everything: name, number, email, country, date…',selAll:'Select all results',clearSel:'Clear selection',cols:'Column order & visibility',
@@ -161,7 +161,7 @@ en:{title:'Facebook Contacts Converter',seoTitle:'Facebook Contacts Converter �
  about:'About',howto:'How to use',privacy:'Privacy',terms:'Terms',contact:'Contact',
  P:{about:'A free tool that converts the contact files you download from Facebook into Excel and import-ready formats for your phone, Google and Outlook.',
  howto:'1) Download your information from Facebook (address books / imported contacts). 2) Upload the file here. 3) Review and clean the results. 4) Pick a format. Android: Contacts → Import → vcf file. iPhone/Gmail: upload the CSV at contacts.google.com.',
- privacy:'All processing happens in your browser. We do not upload your files, store your contacts, or send them to anyone. Only your language and theme choice are saved locally on your device. The site shows ads from the Adsterra network inside isolated frames that cannot access your files or contacts; the network may use its own cookies. The YouTube tutorial video only loads when you press play.',
+ privacy:'All processing happens in your browser. We do not upload your files, store your contacts, or send them to anyone. Only your language and theme choice are saved locally on your device. The site shows ads from Adsterra, a third party whose ads run inside the converter page itself. We do not send your files, but we cannot guarantee what ad scripts do or stop them from reading what is shown on the page, and the network may use cookies. If your contacts are sensitive, disable ads with an ad blocker before loading the file. The YouTube tutorial video only loads when you press play.',
  terms:'The tool is provided as-is with no warranty. You are responsible for the data you convert, for keeping a backup before importing, and for having the right to use these contacts.',
  contact:'For feedback and issues, reach us on:'},none:'Note: Facebook files contain no company or notes fields — only name, numbers/emails and the date added.'}
 };

@@ -1,6 +1,6 @@
 # Facebook Contacts Converter · محوّل جهات اتصال فيسبوك
 
-Convert the contacts you download from Facebook into files you can actually import: **vCard (.vcf)**, **Google Contacts CSV**, **SIM-friendly vCard**, or **Excel**. Free, private, no sign-up. Everything runs in your browser.
+Convert the contacts you download from Facebook into files you can actually import: **vCard (.vcf)**, **Google Contacts CSV**, **SIM-friendly vCard**, or **Excel**. Free, no sign-up. Files are processed in your browser.
 
 **🔗 Live tool: https://majdfatihy.github.io/facebook-contacts-converter/**
 
@@ -50,6 +50,7 @@ Menu names differ between devices and app versions.
 
 - Your files are processed **locally in the browser**. They are never uploaded to any server.
 - Only your language and theme preference are saved in `localStorage`.
+- Third-party ads (Adsterra) run on the converter page, and we cannot guarantee what ad scripts do. If your contacts are sensitive, disable ads with an ad blocker before loading the file.
 - When you export Excel or ZIP, the page loads the open-source libraries [SheetJS](https://sheetjs.com/) and [JSZip](https://stuk.github.io/jszip/) from cdnjs. Only the library files are downloaded; none of your data is sent.
 
 ## Tutorial video
@@ -58,7 +59,7 @@ The explainer video is set by `tutorial.id` in `links.js` (leave it empty to hid
 
 ## Ads
 
-The public site shows Adsterra ads. All ad code lives in a single file, `adsterra.js`, so it is easy to disable (set `ENABLED=false` or remove its `<script>` tag) or replace with another network. On the converter page ads run in sandboxed iframes that cannot access your files or contacts. A page-level ad script is only allowed on the guide page, which handles no user data.
+The public site shows Adsterra ads. All ad code lives in `adsterra.js` (plus its helper `adsterra-frame.html`), so it is easy to disable (set `ENABLED=false` or remove its `<script>` tag) or replace with another network. Ad frames run unsandboxed on every page, including the converter, so ad scripts could in theory read what the converter page displays. The page-level ad script (`bauval.org/14/…`) is only enabled on the guide page (`data-ads-script="off"` on the converter). Set `data-ads="sandbox"` on a page to isolate its ads (they may then show blank).
 
 ## Try it with fake data
 
@@ -85,7 +86,7 @@ python3 -m http.server 8000   # then open http://localhost:8000
 |---|---|
 | `index.html` | The whole tool (HTML + CSS + JS) with SEO metadata |
 | `guide.html` | Tutorial / promo page |
-| `adsterra.js` | All Adsterra ad code and placement rules |
+| `adsterra.js`, `adsterra-frame.html` | All Adsterra ad code and placement rules |
 | `links.js` | Social links (YouTube, Facebook, Instagram, WhatsApp, Telegram), edit them in one place |
 | `robots.txt`, `sitemap.xml` | Search engine crawling |
 | `favicon.svg`, `og-image.png` | Icon and social preview image |
@@ -108,7 +109,7 @@ Settings → Pages → Source: *Deploy from a branch* → `main` / `(root)`. The
 
 ## الوصف بالعربية
 
-أداة مجانية وخاصة لتحويل جهات الاتصال التي تحمّلها من فيسبوك إلى ملفات يمكن استيرادها فعلاً: **vCard (.vcf)** أو **Google CSV** أو **ملف مخفّف لشريحة SIM** أو **Excel**. تعمل بالكامل داخل متصفحك دون رفع أي بيانات.
+أداة مجانية لتحويل جهات الاتصال التي تحمّلها من فيسبوك إلى ملفات يمكن استيرادها فعلاً: **vCard (.vcf)** أو **Google CSV** أو **ملف مخفّف لشريحة SIM** أو **Excel**. تعالج الملفات داخل متصفحك دون رفعها لأي خادم.
 
 **🔗 الأداة: https://majdfatihy.github.io/facebook-contacts-converter/**
 
@@ -133,7 +134,7 @@ Settings → Pages → Source: *Deploy from a branch* → `main` / `(root)`. The
 
 ### الخصوصية
 
-المعالجة محلية في المتصفح، ولا تُرفع الملفات لأي خادم. يُحفظ فقط اختيار اللغة والمظهر على جهازك. عند تصدير Excel أو ZIP تُحمَّل مكتبتا SheetJS وJSZip من cdnjs دون إرسال أي بيانات.
+المعالجة محلية في المتصفح، ولا تُرفع الملفات لأي خادم. لكن الموقع يعرض إعلانات Adsterra (طرف ثالث) داخل صفحة الأداة ولا يمكننا ضمان ما تفعله سكربتاتها؛ إن كانت جهاتك حساسة فعطّل الإعلانات بحاجب إعلانات. يُحفظ فقط اختيار اللغة والمظهر على جهازك. عند تصدير Excel أو ZIP تُحمَّل مكتبتا SheetJS وJSZip من cdnjs دون إرسال أي بيانات.
 
 ### قيود
 

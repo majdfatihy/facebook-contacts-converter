@@ -49,8 +49,8 @@
 
   function frame(holder, u) {
     // The official Adsterra code runs inside adsterra-frame.html (a normal page with a real URL/referrer).
-    // Pages marked data-ads="open" load it plainly; every other page (the converter) loads it sandboxed
-    // WITHOUT allow-same-origin, so ad code cannot read that page or the user's contacts.
+    // Pages marked data-ads="open" load it plainly (ad code shares this site's origin, so it is NOT isolated).
+    // Any other page loads it sandboxed WITHOUT allow-same-origin (isolated, but ads may show blank).
     var f = document.createElement('iframe');
     f.title = 'Advertisement';
     if (document.body.getAttribute('data-ads') !== 'open') {
@@ -112,9 +112,9 @@
   }
 
   function pageScript() {
-    // Page-level scripts run in the page itself, so they are only allowed on pages marked data-ads="open"
-    // (public pages that never hold user data). Never enabled on the converter page.
-    if (document.body.getAttribute('data-ads') !== 'open') return;
+    // Page-level scripts run in the page itself: only on pages marked data-ads="open" and NOT data-ads-script="off".
+    // The converter page has data-ads-script="off", so this script never runs there.
+    if (document.body.getAttribute('data-ads') !== 'open' || document.body.getAttribute('data-ads-script') === 'off') return;
     var done = false, run = function () {
       if (done) return; done = true;
       var s = document.createElement('script'); s.src = PAGE_SCRIPT; s.setAttribute('data-cfasync', 'false'); document.body.appendChild(s);
