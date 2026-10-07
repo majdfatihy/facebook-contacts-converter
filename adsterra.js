@@ -1,6 +1,6 @@
 /*!
- * Adsterra ads loader — all Adsterra code lives in THIS file only.
- * To disable: set ENABLED=false below, or delete the <script src="adsterra.js"> tag from the pages.
+ * Adsterra ads loader — all Adsterra code lives in THIS file + adsterra-frame.html.
+ * To disable: set ENABLED=false below, or delete the <script src="adsterra.js"> tag from the pages (then delete adsterra-frame.html too).
  * To use another network: copy this file to e.g. othernet.js, replace the units, add its <script> tag.
  * Pages only need empty slots like <div data-ad="top"></div>.
  */
@@ -47,21 +47,18 @@
     document.head.appendChild(s);
   }
 
-  function doc(u) {
-    var head = '<!doctype html><html><head><meta charset="utf-8"><style>html,body{margin:0;overflow:hidden;background:transparent}</style></head><body>';
-    if (u.native) return head + '<script async data-cfasync="false" src="https://bauval.org/21/' + u.k + '"><\/script><div id="container-' + u.k + '"></div></body></html>';
-    return head + '<script>atOptions={"key":"' + u.k + '","format":"iframe","height":' + u.h + ',"width":' + u.w + ',"params":{}};<\/script>' +
-      '<script src="https://bauval.org/22/' + u.k + '"><\/script></body></html>';
-  }
-
   function frame(holder, u) {
-    // Sandboxed without allow-same-origin: ad code cannot read this page, its variables or the user's contacts.
+    // The official Adsterra code runs inside adsterra-frame.html (a normal page with a real URL/referrer).
+    // Pages marked data-ads="open" load it plainly; every other page (the converter) loads it sandboxed
+    // WITHOUT allow-same-origin, so ad code cannot read that page or the user's contacts.
     var f = document.createElement('iframe');
     f.title = 'Advertisement';
-    f.setAttribute('sandbox', 'allow-scripts allow-popups allow-popups-to-escape-sandbox');
+    if (document.body.getAttribute('data-ads') !== 'open') {
+      f.setAttribute('sandbox', 'allow-scripts allow-popups allow-popups-to-escape-sandbox');
+    }
     f.setAttribute('scrolling', 'no');
     f.width = u.native ? '100%' : u.w; f.height = u.h;
-    f.srcdoc = doc(u);
+    f.src = 'adsterra-frame.html?k=' + u.k + '&w=' + (u.w || 0) + '&h=' + u.h + '&n=' + (u.native ? 1 : 0) + (/[?&]adsdebug=1/.test(location.search) ? '&d=1' : '');
     holder.appendChild(f);
   }
 

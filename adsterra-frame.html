@@ -1,0 +1,32 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><meta name="robots" content="noindex,nofollow"><title>ad</title>
+<style>html,body{margin:0;padding:0;overflow:hidden;background:transparent}</style></head>
+<body>
+<script>
+/* Runs the official Adsterra code (parser-inserted, as Adsterra requires). Parameters come from the URL.
+   Add &d=1 to the URL to print diagnostics (script loaded? iframe injected?). */
+(function () {
+  var q = new URLSearchParams(location.search), k = q.get('k') || '', w = +q.get('w') || 0, h = +q.get('h') || 0, dbg = q.get('d') === '1', box;
+  function say(t) {
+    if (!dbg) return;
+    if (!box) { box = document.createElement('pre'); box.style.cssText = 'font:12px monospace;color:#000;background:#fffc;padding:4px;margin:0;white-space:pre-wrap;position:fixed;left:0;top:0;right:0;z-index:9;max-height:100%;overflow:auto'; document.documentElement.appendChild(box); }
+    box.textContent += t + '\n';
+  }
+  window.__adok = function (ok) { say(ok ? '1) ad script loaded OK' : '1) ad script FAILED to load -> blocked by adblock/DNS/network'); };
+  if (!/^[a-f0-9]{32}$/.test(k)) { say('bad key'); return; }
+  say('key ' + k.slice(0, 6) + '… size ' + w + 'x' + h + ' | host ' + location.host + ' | referrer ' + (document.referrer || '(none)'));
+  var tag = ' onload="__adok(1)" onerror="__adok(0)"';
+  if (q.get('n') === '1') {
+    document.write('<script async="async" data-cfasync="false" src="https://bauval.org/21/' + k + '"' + tag + '><\/script><div id="container-' + k + '"></div>');
+  } else {
+    window.atOptions = { key: k, format: 'iframe', height: h, width: w, params: {} };
+    document.write('<script src="https://bauval.org/22/' + k + '"' + tag + '><\/script>');
+  }
+  setTimeout(function () {
+    var n = document.getElementsByTagName('iframe').length, c = document.getElementById('container-' + k);
+    say('2) after 4s: iframes injected = ' + n + (c ? ' | native container children = ' + c.children.length : ''));
+    say(n || (c && c.children.length) ? '=> the network DID return an ad. If it is blank, it is "no fill" / site not approved yet in Adsterra.' : '=> script ran but injected nothing: domain not approved/registered for this key, or the account has no ads to serve.');
+  }, 4000);
+})();
+</script>
+</body></html>
