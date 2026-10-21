@@ -1,145 +1,142 @@
-# Facebook Contacts Converter · محوّل جهات اتصال فيسبوك
+<div dir="rtl" align="center">
 
-Convert the contacts you download from Facebook into files you can actually import: **vCard (.vcf)**, **Google Contacts CSV**, **SIM-friendly vCard**, or **Excel**. Free, no sign-up. Files are processed in your browser.
+# 📇 محوّل جهات اتصال فيسبوك الذكي
+### Facebook Contacts Converter (vCard · Google CSV · Excel · SIM)
 
-**🔗 Live tool: https://majdfatihy.github.io/facebook-contacts-converter/**
+[![Live Tool](https://img.shields.io/badge/Live_Tool-Visit_Now-0a7a65?style=for-the-badge&logo=google-chrome&logoColor=white)](https://majdfatihy.github.io/facebook-contacts-converter/)
+[![YouTube Tutorial](https://img.shields.io/badge/YouTube-Tutorial_Video-ff0000?style=for-the-badge&logo=youtube&logoColor=white)](https://youtu.be/QwlORPLlTIE)
+[![YouTube Channel](https://img.shields.io/badge/YouTube-@MajdFatihy-d40000?style=for-the-badge&logo=youtube&logoColor=white)](https://www.youtube.com/@MajdFatihy)
+[![Telegram](https://img.shields.io/badge/Telegram-@MajdEarn-0088cc?style=for-the-badge&logo=telegram&logoColor=white)](https://t.me/MajdEarn)
+
+<p align="center">
+  <a href="https://majdfatihy.github.io/facebook-contacts-converter/"><b>🌐 استخدام الأداة مباشرة</b></a> •
+  <a href="https://youtu.be/QwlORPLlTIE"><b>🎬 مشاهدة فيديو شرح الأداة</b></a> •
+  <a href="https://majdfatihy.github.io/online-earning-directory/"><b>💎 دليل أرباحي المعتمد</b></a> •
+  <a href="https://majdfatihy.github.io/image-compressor/"><b>🖼️ أداة ضغط الصور</b></a>
+</p>
+
+**أداة ويب مجانية واحترافية لتحويل ملفات جهات الاتصال المستخرجة من فيسبوك (`HTML` أو `JSON`) إلى ملفات جاهزة للاستيراد الفوري على الهاتف (`vCard .vcf`)، أو حساب جوجل (`Google Contacts CSV`)، أو شريحة الاتصال (`SIM Card`)، أو جدول إكسل (`Excel .xlsx`) — تعمل بالكامل داخل متصفحك بنسبة 100% دون رفع بياناتك لأي خادم خارجي.**
+
+</div>
 
 ---
 
-## Features
+<div dir="rtl">
 
-- Reads both Facebook files: `your_address_books.html` and `your_imported_contacts.json` (you can load both together)
-- Fixes the garbled Arabic text that Facebook's JSON export produces
-- Keeps each contact's multiple phone numbers and emails together, plus the date it was added
-- Smart review before export:
-  - no phone number, has email, international numbers (with country classification)
-  - duplicates: same name + number, same name / different number, same number / different name
-  - corrupted names (already broken in Facebook's own file)
-- Merge options: none, identical contacts, or all contacts with the same name
-- Search across all fields with highlighting, column sorting, show/hide and reorder columns, multi-select
-- Arabic / English interface, automatic dark mode, remembers your choices locally
-- Large lists are split automatically into several files (delivered as one ZIP)
+## 📖 نبذة عن المشروع (Overview)
 
-## Export formats
+عند تنزيل نسخة من معلوماتك من فيسبوك، تحصل على أرقام الهواتف وجهات الاتصال في ملفات معقدة (`your_address_books.html` أو `your_imported_contacts.json`) لا تقبل الهواتف استيرادها مباشرة، وغالباً ما تكون الأسماء العربية في ملفات JSON مشوّهة بسبب خطأ ترميز من فيسبوك نفسه.
 
-| Format | Best for | Notes |
-|---|---|---|
-| **vCard (.vcf)** | Android, iPhone, Google Contacts on desktop | Name, phones, emails. Up to 1000 contacts per file |
-| **Google CSV** | contacts.google.com on a computer | Not accepted by the phone Contacts app. Up to 3000 contacts per file (Google's documented limit) |
-| **SIM vCard** | SIM card storage | One name + one number per contact, name is shortened. Capacity (default 200) and name length (default 12) are adjustable; SIM limits vary by card and device, so test with ~20 contacts first |
-| **Excel (.xlsx)** | Viewing / editing on a computer | Follows your chosen column order. Not directly importable on phones |
+يحل **محوّل جهات اتصال فيسبوك** هذه المشكلة جذرياً؛ حيث يقرأ الملفين معاً، ويصلح ترميز الأسماء العربية تلقائياً، ويكتشف الأرقام المكررة والدولية، ويتيح لك تنظيف وتصفية الأسماء قبل تصديرها بالصيغة المناسبة لهاتفك أو كمبيوترك بضغطة زر.
 
-Contacts without a phone number or email are skipped in vCard / Google CSV (and SIM requires a phone number).
+---
 
-## How to get your Facebook file
+## ✨ المميزات والخصائص التقنية (Key Features)
 
-1. Facebook → Settings → Accounts Center → Your information and permissions → **Download your information** (menu names may vary).
-2. Select address books / imported contacts, format **HTML** or **JSON**.
-3. Upload the file(s) to the tool.
+* 🔒 **خصوصية تامة ومعالجة محلية (100% Client-Side):** لا يتم رفع أي ملف أو جهة اتصال إلى أي سيرفر؛ كل عمليات التحليل والدمج والتصدير تتم محلياً داخل متصفح جهازك.
+* 🛠️ **إصلاح الأسماء العربية المشوهة (Mojibake Fixer):** خوارزمية مدمجة لإصلاح تشوه الحروف العربية الناتج عن تصدير ملفات `JSON` من فيسبوك وإعادتها لقراءتها السليمة (`UTF-8`).
+* 📂 **دعم القراءة المزدوجة:** إمكانية رفع ملف `your_address_books.html` وملف `your_imported_contacts.json` معاً في نفس الوقت ودمجهما بذكاء.
+* 🔍 **فحص وتصنيف ذكي قبل التصدير:** لوحة إحصائيات تفاعلية تفرز لك الجهات حسب:
+  * الإجمالي، جهات بدون رقم هاتف، جهات لديها بريد إلكتروني.
+  * الأرقام الدولية مع التعرف التلقائي على الدولة ومفتاحها الدولي.
+  * كشف المكررات بدقة: مكرر متطابق (نفس الاسم والرقم)، نفس الاسم برقم مختلف، أو نفس الرقم باسم مختلف.
+  * كشف الأسماء التالفة من مصدر فيسبوك الأصلي.
+* 🔗 **3 أوضاع للدمج الذكي:** بدون دمج، أو دمج المتطابق (نفس الاسم والرقم)، أو دمج كل ما له نفس الاسم في بطاقة واحدة متعددة الأرقام.
+* 🎛️ **تحكم كامل في الجدول والأعمدة:** بحث فوري في كل الحقول مع تظليل الكلمات المطابقة، فرز تصاعدي وتنازلي، إظهار/إخفاء الأعمدة وتغيير ترتيبها، وتحديد متعدد أو كلي.
+* 📦 **تقسيم تلقائي للملفات الكبيرة (Auto-Split & ZIP):** التزاماً بحدود جوجل والهواتف، يتم تقسيم القوائم الضخمة تلقائياً إلى عدة ملفات وتسليمها في ملف مضغوط واحد (`ZIP`).
+* 🌍 **ثنائي اللغة ومظاهر متعددة:** دعم كامل للعربية (`RTL`) والإنجليزية (`LTR`) مع وضع ليلي ونهاري وتلقائي.
 
-## Importing
+---
 
-- **Android:** Contacts → Settings (or “Fix & manage”) → Import from file → vCard → choose the `.vcf` file.
-- **iPhone:** open the `.vcf` from the Files app → “Add all contacts”.
-- **Google (computer):** contacts.google.com → Import → choose the `.vcf` or Google CSV.
-- **SIM:** import the SIM file to the phone and pick SIM as the destination if offered, or copy to SIM from the Contacts app settings (name varies by device). Import one file at a time.
+## 📤 صيغ التصدير المدعومة (Supported Export Formats)
 
-Menu names differ between devices and app versions.
+| الصيغة | الاستخدام الأنسب | المميزات والحدود القياسية |
+| :--- | :--- | :--- |
+| **📱 vCard (`.vcf`)** | هواتف أندرويد، آيفون، وموقع Google Contacts | الصيغة الأفضل للهواتف؛ تحفظ الاسم وجميع الأرقام والإيميلات (تُقسّم تلقائياً بحد أقصى 1000 جهة لكل ملف). |
+| **💻 Google CSV (`.csv`)** | موقع `contacts.google.com` من الكمبيوتر | مهيأة رسمياً للاستيراد في حساب جوجل ومزامنتها مع الهاتف (بحد أقصى 3000 جهة لكل ملف). |
+| **💳 SIM vCard (`.vcf`)** | الحفظ المباشر على شريحة الاتصال (SIM) | نسخة مخففة (اسم واحد + رقم واحد لكل جهة) مع إمكانية ضبط سعة الشريحة (الافتراضي 200) وأقصى طول للاسم (12 حرفاً). |
+| **📊 Excel (`.xlsx`)** | العرض، الفرز، والتعديل على الكمبيوتر | جدول إكسل منسق يدعم اتجاه اللغة العربية وتواريخ الإضافة وترتيب الأعمدة الذي اخترته. |
 
-## Privacy
+---
 
-- Your files are processed **locally in the browser**. They are never uploaded to any server.
-- Only your language and theme preference are saved in `localStorage`.
-- Third-party ads (Adsterra) run on the converter page, and we cannot guarantee what ad scripts do. If your contacts are sensitive, disable ads with an ad blocker before loading the file.
-- When you export Excel or ZIP, the page loads the open-source libraries [SheetJS](https://sheetjs.com/) and [JSZip](https://stuk.github.io/jszip/) from cdnjs. Only the library files are downloaded; none of your data is sent.
+## 🚀 طريقة الاستخدام السريعة (How to Use)
 
-## Tutorial video
+1. **استخراج الملف من فيسبوك:** ادخل إلى إعدادات فيسبوك ← مركز الحسابات ← معلوماتك وأذوناتك ← **تنزيل معلوماتك**، وحدد «دفاتر العناوين» أو «جهات الاتصال المستوردة» بصيغة `HTML` أو `JSON`.
+2. **رفع الملف للأداة:** افتح [صفحة الأداة](https://majdfatihy.github.io/facebook-contacts-converter/) واسحب الملف (أو الملفين معاً) إلى صندوق الرفع، أو جرب الأداة فوراً باستخدام [ملف HTML التجريبي](https://majdfatihy.github.io/facebook-contacts-converter/demo-address-books.html).
+3. **المراجعة والتصفية:** اختر وضع الدمج المناسب، واستخدم الفلاتر العلوية أو شريط البحث لمراجعة أرقامك وتحديد ما تريد تصديره.
+4. **التصدير والاستيراد:** اضغط على زر **تصدير** تحت الصيغة المناسبة لك واتبع خطوات الاستيراد الموضحة داخل البطاقة.
 
-The explainer video is set by `tutorial.id` in `links.js` (leave it empty to hide the video everywhere). It uses a click-to-load player on `youtube-nocookie.com`, so nothing is requested from YouTube until the visitor presses play (the guide page also loads the video thumbnail).
+---
 
-## Ads
+## 📁 هيكلية ملفات المشروع (Project Structure)
 
-The public site shows Adsterra ads. All ad code lives in `adsterra.js` (plus its helper `adsterra-frame.html`), so it is easy to disable (set `ENABLED=false` or remove its `<script>` tag) or replace with another network. Ad frames run unsandboxed on every page, including the converter, so ad scripts could in theory read what the converter page displays. The page-level ad script (`bauval.org/14/…`) is only enabled on the guide page (`data-ads-script="off"` on the converter). Set `data-ads="sandbox"` on a page to isolate its ads (they may then show blank).
+<pre dir="ltr">
+facebook-contacts-converter/
+├── index.html                    # التطبيق الكامل (المحرك، الواجهة، التصدير، وبيانات السيو)
+├── guide.html                    # صفحة الدليل الشامل والشرح التفصيلي
+├── links.js                      # وحدة إدارة روابط التواصل الاجتماعي ومشغل فيديو الشرح
+├── adsterra.js                   # وحدة إدارة الإعلانات المتجاوبة
+├── demo-address-books.html       # ملف بيانات وهمية تجريبي بصيغة HTML للتجربة الآمنة
+├── demo-imported-contacts.json   # ملف بيانات وهمية تجريبي بصيغة JSON للتجربة الآمنة
+├── favicon.svg                   # أيقونة الموقع
+├── sitemap.xml                   # خريطة الموقع لمحركات البحث
+├── robots.txt                    # ملف توجيه عناكب البحث
+└── README.md                     # ملف توثيق المشروع
+</pre>
 
-## Try it with fake data
+---
 
-Sample files with fictional contacts (Arabic + English) are included:
+## 💻 التشغيل المحلي (Run Locally)
 
-- `demo-address-books.html` (downloads as `your_address_books.html` from the page)
-- `demo-imported-contacts.json` (downloads as `your_imported_contacts.json`)
+المشروع مبني بـ **Vanilla JavaScript / HTML5 / CSS3** في صفحة ثابتة سريعة جداً بدون أي خطوات بناء معقدة:
 
-Phone numbers in the samples are sequential or reserved-range numbers, but a few could coincide with real ones, so don't import them into your real account.
-
-## Run locally
-
-A single static page, no build step:
-
-```bash
+<pre dir="ltr">
 git clone https://github.com/majdfatihy/facebook-contacts-converter.git
 cd facebook-contacts-converter
-python3 -m http.server 8000   # then open http://localhost:8000
-```
+</pre>
 
-## Repository contents
-
-| File | Purpose |
-|---|---|
-| `index.html` | The whole tool (HTML + CSS + JS) with SEO metadata |
-| `guide.html` | Tutorial / promo page |
-| `adsterra.js`, `adsterra-frame.html` | All Adsterra ad code and placement rules |
-| `links.js` | Social links (YouTube, Facebook, Instagram, WhatsApp, Telegram), edit them in one place |
-| `robots.txt`, `sitemap.xml` | Search engine crawling |
-| `favicon.svg`, `og-image.png` | Icon and social preview image |
-| `demo-*.html / .json` | Fake sample data |
-
-## Deploy your own copy
-
-Settings → Pages → Source: *Deploy from a branch* → `main` / `(root)`. Then replace `majdfatihy` in `index.html`, `robots.txt` and `sitemap.xml` with your username, and set `CONTACT_EMAIL` near the top of the script in `index.html` if you want a contact link.
-
-## Limitations
-
-- Facebook's files contain only name, phone/email and date added. There are no companies, notes or addresses to convert.
-- Names already corrupted in Facebook's own export cannot be repaired.
-- The country table covers common calling codes; unknown codes are shown as `?`.
-- Provided as-is, without warranty. Keep a backup of your contacts before importing.
+ثم افتح ملف `index.html` مباشرة في متصفحك، أو شغّل خادماً محلياً بسيطاً عبر `python3 -m http.server 8000`.
 
 ---
 
-<div dir="rtl" align="right">
+## 🧩 مشاريع وأدوات أخرى للمطور (More Projects by Majd Fatihy)
 
-## الوصف بالعربية
+تصفح بقية الأدوات والمشاريع مفتوحة المصدر التي قمت بتطويرها:
 
-أداة مجانية لتحويل جهات الاتصال التي تحمّلها من فيسبوك إلى ملفات يمكن استيرادها فعلاً: **vCard (.vcf)** أو **Google CSV** أو **ملف مخفّف لشريحة SIM** أو **Excel**. تعالج الملفات داخل متصفحك دون رفعها لأي خادم.
+| المشروع | الروابط المباشرة | نبذة عن المشروع |
+| :--- | :--- | :--- |
+| 📇 **محوّل جهات اتصال فيسبوك** | [تصفح الأداة](https://majdfatihy.github.io/facebook-contacts-converter/) • [المستودع](https://github.com/majdfatihy/facebook-contacts-converter) | تحويل جهات اتصال فيسبوك (HTML/JSON) إلى Excel و vCard و Google CSV محلياً بالمتصفح مع إصلاح الأسماء العربية. |
+| 💎 **دليل أرباحي المعتمد (Earn Directory)** | [تصفح المنصة](https://majdfatihy.github.io/online-earning-directory/) • [المستودع](https://github.com/majdfatihy/online-earning-directory) | دليل تفاعلي شامل لأفضل منصات الربح من الإنترنت، الصنابير، المهام، والأفيليت مع إثباتات الدفع الفورية. |
+| 🖼️ **مصغر وضاغط الصور (Image Compressor)** | [تصفح الأداة](https://majdfatihy.github.io/image-compressor/) • [المستودع](https://github.com/majdfatihy/image-compressor) | أداة ضغط وتصغير أبعاد الصور وتحويلها إلى WebP/AVIF محلياً لتسريع مدونات بلوجر والمواقع. |
+| 🔗 **نظام توليد وتوجيه الروابط الآمنة** | [المستودع على GitHub](https://github.com/majdfatihy) | نظام متكامل لتوليد الروابط المشفرة (Base64) وصفحة إعادة توجيه ذكية مزودة بعداد تنازلي وحماية أمنية. |
 
-**🔗 الأداة: https://majdfatihy.github.io/facebook-contacts-converter/**
+---
 
-### المميزات
+## 🌐 الروابط الرسمية وحسابات التواصل (Official Links & Socials)
 
-- قراءة ملفي فيسبوك: `your_address_books.html` و`your_imported_contacts.json` (يمكن رفعهما معاً)
-- إصلاح النص العربي المشوّه في ملف JSON
-- جمع أرقام وبريد كل جهة اتصال معاً مع تاريخ الإضافة
-- مراجعة قبل التصدير: جهات بلا رقم، لديها بريد، أرقام دولية، مكررات بأنواعها، أسماء تالفة
-- خيارات دمج، وبحث بتظليل، وفرز، وترتيب الأعمدة، وتحديد متعدد
-- واجهة عربية/إنجليزية ووضع داكن تلقائي
-- تقسيم الملفات الكبيرة تلقائياً (تُسلَّم في ZIP واحد)
+تابع أحدث الأدوات والشروحات الحصرية عبر قنواتنا الرسمية:
 
-### صيغ التصدير
+| المنصة | الرابط المباشر | الوصف |
+| :--- | :--- | :--- |
+| 🌐 **أداة تحويل جهات اتصال فيسبوك** | [majdfatihy.github.io/facebook-contacts-converter](https://majdfatihy.github.io/facebook-contacts-converter/) | الرابط المباشر للأداة |
+| 🎬 **فيديو شرح الأداة على يوتيوب** | [youtu.be/QwlORPLlTIE](https://youtu.be/QwlORPLlTIE) | شرح عملي خطوة بخطوة لاستخراج وتحويل الأرقام |
+| 📺 **قناة اليوتيوب (YouTube)** | [قناة ماجد فتحي - Majd Fatihy](https://www.youtube.com/@MajdFatihy) | الشروحات المرئية للأدوات والربح والبرمجة |
+| 📢 **قناة تيليجرام** | [قناة إثباتات الدفع - MajdEarn](https://t.me/MajdEarn) | إثباتات السحب اليومية والتحديثات |
+| 💬 **حساب تيليجرام** | [التواصل المباشر - MajdFatihy](https://t.me/majdfathy) | للاستفسارات والدعم الفني |
+| 📱 **واتساب (WhatsApp)** | [تواصل عبر واتساب](https://wa.me/201066732514) | مراسلة فورية للدعم والاستفسارات |
+| 📸 **إنستجرام (Instagram)** | [@majdfatihy](https://www.instagram.com/majdfatihy) | متابعة التحديثات والمنشورات |
+| 🎵 **تيك توك (TikTok)** | [@majdfatihy](https://www.tiktok.com/@majdfatihy) | فيديوهات قصيرة وشروحات سريعة |
+| 📘 **فيسبوك (Facebook)** | [الصفحة الرسمية](https://www.facebook.com/majdfatihyfp) • [الحساب الشخصي](https://www.facebook.com/majdfatihy98) | متابعة الأخبار والمقالات |
+| ✍️ **المدونة (Blogger)** | [مدونة ماجد فتحي الرسمية](https://magedfatihy.blogspot.com/) | مقالات وشروحات تقنية مفصلة |
+| 🐦 **منصة إكس (X / Twitter)** | [@majdfathy](https://x.com/majdfathy) | تغريدات وتحديثات مستمرة |
+| 💼 **لينكد إن (LinkedIn)** | [Majd Fatihy](https://eg.linkedin.com/in/majd-medical-procurement) | التواصل المهني والأعمال |
+| 📌 **بينترست (Pinterest)** | [MajdFatihy](https://in.pinterest.com/MajdFatihy/) | تصاميم وملخصات مرئية |
+| 📧 **البريد الإلكتروني** | [fthymajd3701@gmail.com](mailto:fthymajd3701@gmail.com) | للمراسلات الرسمية والإعلانات |
 
-| الصيغة | الاستخدام | ملاحظات |
-|---|---|---|
-| **vCard (.vcf)** | أندرويد وآيفون وجوجل | حتى 1000 جهة في الملف |
-| **Google CSV** | contacts.google.com من الكمبيوتر | لا يقبله تطبيق جهات الاتصال في الهاتف، حتى 3000 جهة في الملف |
-| **SIM** | شريحة SIM | اسم مقصوص ورقم واحد؛ السعة (200) وطول الاسم (12) قابلان للتعديل، جرّب 20 جهة أولاً |
-| **Excel** | العرض والتعديل على الكمبيوتر | غير قابل للاستيراد مباشرة على الهاتف |
+---
 
-### الخصوصية
-
-المعالجة محلية في المتصفح، ولا تُرفع الملفات لأي خادم. لكن الموقع يعرض إعلانات Adsterra (طرف ثالث) داخل صفحة الأداة ولا يمكننا ضمان ما تفعله سكربتاتها؛ إن كانت جهاتك حساسة فعطّل الإعلانات بحاجب إعلانات. يُحفظ فقط اختيار اللغة والمظهر على جهازك. عند تصدير Excel أو ZIP تُحمَّل مكتبتا SheetJS وJSZip من cdnjs دون إرسال أي بيانات.
-
-### قيود
-
-- ملفات فيسبوك لا تحتوي شركات ولا ملاحظات ولا عناوين.
-- الأسماء التالفة في ملف فيسبوك نفسه لا يمكن إصلاحها.
-- احتفظ بنسخة احتياطية من جهات اتصالك قبل الاستيراد.
+<p align="center">
+  <b>صُنع بكل ❤️ بواسطة <a href="https://github.com/majdfatihy">ماجد فتحي (Majd Fatihy)</a> © 2026 جميع الحقوق محفوظة</b>
+</p>
 
 </div>
