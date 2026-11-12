@@ -3,16 +3,16 @@
 # 📇 محوّل جهات اتصال فيسبوك الذكي
 ### Facebook Contacts Converter (vCard · Google CSV · Excel · SIM)
 
-[![Live Tool](https://img.shields.io/badge/Live_Tool-Visit_Now-0a7a65?style=for-the-badge&logo=google-chrome&logoColor=white)](https://majdfatihy.github.io/facebook-contacts-converter/)
+[![Live Tool](https://img.shields.io/badge/Live_Tool-Visit_Now-0a7a65?style=for-the-badge&logo=google-chrome&logoColor=white)](https://dev.majdfatihy.com/facebook-contacts-converter/)
 [![YouTube Tutorial](https://img.shields.io/badge/YouTube-Tutorial_Video-ff0000?style=for-the-badge&logo=youtube&logoColor=white)](https://youtu.be/QwlORPLlTIE)
 [![YouTube Channel](https://img.shields.io/badge/YouTube-@MajdFatihy-d40000?style=for-the-badge&logo=youtube&logoColor=white)](https://www.youtube.com/@MajdFatihy)
 [![Telegram](https://img.shields.io/badge/Telegram-@MajdEarn-0088cc?style=for-the-badge&logo=telegram&logoColor=white)](https://t.me/MajdEarn)
 
 <p align="center">
-  <a href="https://majdfatihy.github.io/facebook-contacts-converter/"><b>🌐 استخدام الأداة مباشرة</b></a> •
+  <a href="https://dev.majdfatihy.com/facebook-contacts-converter/"><b>🌐 استخدام الأداة مباشرة</b></a> •
   <a href="https://youtu.be/QwlORPLlTIE"><b>🎬 مشاهدة فيديو شرح الأداة</b></a> •
-  <a href="https://majdfatihy.github.io/online-earning-directory/"><b>💎 دليل أرباحي المعتمد</b></a> •
-  <a href="https://majdfatihy.github.io/image-compressor/"><b>🖼️ أداة ضغط الصور</b></a>
+  <a href="https://dev.majdfatihy.com/online-earning-directory/"><b>💎 دليل أرباحي المعتمد</b></a> •
+  <a href="https://dev.majdfatihy.com/image-compressor/"><b>🖼️ أداة ضغط الصور</b></a>
 </p>
 
 **أداة ويب مجانية واحترافية لتحويل ملفات جهات الاتصال المستخرجة من فيسبوك (`HTML` أو `JSON`) إلى ملفات جاهزة للاستيراد الفوري على الهاتف (`vCard .vcf`)، أو حساب جوجل (`Google Contacts CSV`)، أو شريحة الاتصال (`SIM Card`)، أو جدول إكسل (`Excel .xlsx`) — تعمل بالكامل داخل متصفحك بنسبة 100% دون رفع بياناتك لأي خادم خارجي.**
@@ -62,7 +62,7 @@
 ## 🚀 طريقة الاستخدام السريعة (How to Use)
 
 1. **استخراج الملف من فيسبوك:** ادخل إلى إعدادات فيسبوك ← مركز الحسابات ← معلوماتك وأذوناتك ← **تنزيل معلوماتك**، وحدد «دفاتر العناوين» أو «جهات الاتصال المستوردة» بصيغة `HTML` أو `JSON`.
-2. **رفع الملف للأداة:** افتح [صفحة الأداة](https://majdfatihy.github.io/facebook-contacts-converter/) واسحب الملف (أو الملفين معاً) إلى صندوق الرفع، أو جرب الأداة فوراً باستخدام [ملف HTML التجريبي](https://majdfatihy.github.io/facebook-contacts-converter/demo-address-books.html).
+2. **رفع الملف للأداة:** افتح [صفحة الأداة](https://dev.majdfatihy.com/facebook-contacts-converter/) واسحب الملف (أو الملفين معاً) إلى صندوق الرفع، أو جرب الأداة فوراً باستخدام [ملف HTML التجريبي](https://dev.majdfatihy.com/facebook-contacts-converter/demo-address-books.html).
 3. **المراجعة والتصفية:** اختر وضع الدمج المناسب، واستخدم الفلاتر العلوية أو شريط البحث لمراجعة أرقامك وتحديد ما تريد تصديره.
 4. **التصدير والاستيراد:** اضغط على زر **تصدير** تحت الصيغة المناسبة لك واتبع خطوات الاستيراد الموضحة داخل البطاقة.
 
@@ -105,9 +105,9 @@ cd facebook-contacts-converter
 
 | المشروع | الروابط المباشرة | نبذة عن المشروع |
 | :--- | :--- | :--- |
-| 📇 **محوّل جهات اتصال فيسبوك** | [تصفح الأداة](https://majdfatihy.github.io/facebook-contacts-converter/) • [المستودع](https://github.com/majdfatihy/facebook-contacts-converter) | تحويل جهات اتصال فيسبوك (HTML/JSON) إلى Excel و vCard و Google CSV محلياً بالمتصفح مع إصلاح الأسماء العربية. |
-| 💎 **دليل أرباحي المعتمد (Earn Directory)** | [تصفح المنصة](https://majdfatihy.github.io/online-earning-directory/) • [المستودع](https://github.com/majdfatihy/online-earning-directory) | دليل تفاعلي شامل لأفضل منصات الربح من الإنترنت، الصنابير، المهام، والأفيليت مع إثباتات الدفع الفورية. |
-| 🖼️ **مصغر وضاغط الصور (Image Compressor)** | [تصفح الأداة](https://majdfatihy.github.io/image-compressor/) • [المستودع](https://github.com/majdfatihy/image-compressor) | أداة ضغط وتصغير أبعاد الصور وتحويلها إلى WebP/AVIF محلياً لتسريع مدونات بلوجر والمواقع. |
+| 📇 **محوّل جهات اتصال فيسبوك** | [تصفح الأداة](https://dev.majdfatihy.com/facebook-contacts-converter/) • [المستودع](https://github.com/majdfatihy/facebook-contacts-converter) | تحويل جهات اتصال فيسبوك (HTML/JSON) إلى Excel و vCard و Google CSV محلياً بالمتصفح مع إصلاح الأسماء العربية. |
+| 💎 **دليل أرباحي المعتمد (Earn Directory)** | [تصفح المنصة](https://dev.majdfatihy.com/online-earning-directory/) • [المستودع](https://github.com/majdfatihy/online-earning-directory) | دليل تفاعلي شامل لأفضل منصات الربح من الإنترنت، الصنابير، المهام، والأفيليت مع إثباتات الدفع الفورية. |
+| 🖼️ **مصغر وضاغط الصور (Image Compressor)** | [تصفح الأداة](https://dev.majdfatihy.com/image-compressor/) • [المستودع](https://github.com/majdfatihy/image-compressor) | أداة ضغط وتصغير أبعاد الصور وتحويلها إلى WebP/AVIF محلياً لتسريع مدونات بلوجر والمواقع. |
 | 🔗 **نظام توليد وتوجيه الروابط الآمنة** | [المستودع على GitHub](https://github.com/majdfatihy) | نظام متكامل لتوليد الروابط المشفرة (Base64) وصفحة إعادة توجيه ذكية مزودة بعداد تنازلي وحماية أمنية. |
 
 ---
@@ -118,7 +118,7 @@ cd facebook-contacts-converter
 
 | المنصة | الرابط المباشر | الوصف |
 | :--- | :--- | :--- |
-| 🌐 **أداة تحويل جهات اتصال فيسبوك** | [majdfatihy.github.io/facebook-contacts-converter](https://majdfatihy.github.io/facebook-contacts-converter/) | الرابط المباشر للأداة |
+| 🌐 **أداة تحويل جهات اتصال فيسبوك** | [majdfatihy.github.io/facebook-contacts-converter](https://dev.majdfatihy.com/facebook-contacts-converter/) | الرابط المباشر للأداة |
 | 🎬 **فيديو شرح الأداة على يوتيوب** | [youtu.be/QwlORPLlTIE](https://youtu.be/QwlORPLlTIE) | شرح عملي خطوة بخطوة لاستخراج وتحويل الأرقام |
 | 📺 **قناة اليوتيوب (YouTube)** | [قناة ماجد فتحي - Majd Fatihy](https://www.youtube.com/@MajdFatihy) | الشروحات المرئية للأدوات والربح والبرمجة |
 | 📢 **قناة تيليجرام** | [قناة إثباتات الدفع - MajdEarn](https://t.me/MajdEarn) | إثباتات السحب اليومية والتحديثات |
