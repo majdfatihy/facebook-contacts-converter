@@ -132,7 +132,7 @@ dialog::backdrop{background:#0008}
 </main>
 <footer>
   <div class="social-links"></div>
-  <div><a href="guide.html" style="text-decoration:underline">دليل الاستخدام / Guide</a><a data-p="about">من نحن</a><a data-p="howto">طريقة الاستخدام</a><a data-p="privacy">الخصوصية</a><a data-p="terms">الشروط</a><a data-p="contact">اتصل بنا</a></div>
+  <div><a href="guide.html" style="text-decoration:underline">دليل الاستخدام / Guide</a><a href="https://dev.majdfatihy.com/">الرئيسية / Home</a><a data-p="about" href="https://dev.majdfatihy.com/about.html">من نحن</a><a data-p="howto">طريقة الاستخدام</a><a data-p="privacy" href="https://dev.majdfatihy.com/privacy.html">الخصوصية</a><a data-p="terms" href="https://dev.majdfatihy.com/terms.html">الشروط</a><a href="https://dev.majdfatihy.com/disclaimer.html">إخلاء المسؤولية / Disclaimer</a><a data-p="contact" href="https://dev.majdfatihy.com/contact.html">اتصل بنا</a></div>
   <div style="margin-top:8px">© <span id="yr"></span> — <span data-i="title">محوّل جهات اتصال فيسبوك</span></div>
 </footer>
 <dialog id="dlg"><div id="dlgb"></div><div class="row"><button class="btn" id="dlgx"></button></div></dialog>
@@ -376,7 +376,7 @@ function applyLang(){const h=document.documentElement;h.lang=LANG;h.dir=LANG==='
 function applyTheme(){const r=document.documentElement;THEME==='auto'?r.removeAttribute('data-theme'):r.setAttribute('data-theme',THEME);$('bTheme').textContent='◐ '+t('th_'+THEME[0])}
 $('bLang').onclick=()=>{LANG=LANG==='ar'?'en':'ar';store.set('lang',LANG);applyLang()};
 $('bTheme').onclick=()=>{THEME={auto:'light',light:'dark',dark:'auto'}[THEME];store.set('theme',THEME);applyTheme()};
-document.querySelectorAll('[data-p]').forEach(a=>a.onclick=()=>{const k=a.dataset.p,b=$('dlgb');b.innerHTML='';
+document.querySelectorAll('[data-p]').forEach(a=>a.onclick=()=>{if(a.hasAttribute('href'))return;const k=a.dataset.p,b=$('dlgb');b.innerHTML='';
  const h=document.createElement('h3'),p=document.createElement('p');h.textContent=t(k);p.textContent=t('P')[k];b.append(h,p);
  if(k==='contact'){if(CONTACT_EMAIL){const l=document.createElement('a');l.href='mailto:'+CONTACT_EMAIL;l.textContent=CONTACT_EMAIL;b.appendChild(l)}const sl=document.createElement('div');sl.className='social-links';b.appendChild(sl);window.renderSocialLinks&&window.renderSocialLinks()}
  if(k==='about'||k==='howto'){const n=document.createElement('p');n.className='mut';n.textContent=t('none');b.appendChild(n)}
