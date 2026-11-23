@@ -4,15 +4,20 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>دليل نقل جهات اتصال فيسبوك إلى الهاتف وجوجل | Facebook Contacts Guide</title>
-<meta name="description" content="دليل خطوة بخطوة لتحويل جهات اتصال فيسبوك إلى vCard أو Google CSV أو Excel واستيرادها على أندرويد وآيفون وجوجل وSIM. Step-by-step guide to move Facebook contacts to your phone.">
+<meta name="description" content="دليل عملي لنقل جهات اتصال فيسبوك إلى أندرويد أو آيفون: تنزيل ملف HTML أو JSON، تحويله إلى vCard وGoogle CSV أو Excel، واستيراد الأسماء والأرقام بدون رفع الملف إلى خادم.">
 <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large">
 <meta name="color-scheme" content="light dark"><meta name="theme-color" content="#0a5e50">
 <link rel="canonical" href="https://dev.majdfatihy.com/facebook-contacts-converter/guide.html">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <meta property="og:type" content="article"><meta property="og:url" content="https://dev.majdfatihy.com/facebook-contacts-converter/guide.html">
 <meta property="og:title" content="انقل جهات اتصال فيسبوك إلى هاتفك | Move Facebook contacts to your phone">
-<meta property="og:description" content="مجاني وبدون تسجيل ولا نرفع ملفاتك. Free, no sign-up, we never upload your files.">
-<meta property="og:image" content="https://dev.majdfatihy.com/facebook-contacts-converter/og-image.png"><meta name="twitter:card" content="summary_large_image">
+<meta property="og:description" content="دليل عملي لنقل جهات اتصال فيسبوك إلى أندرويد أو آيفون: تنزيل ملف HTML أو JSON، تحويله إلى vCard وGoogle CSV أو Excel، واستيراد الأسماء والأرقام بدون رفع الملف إلى خادم.">
+<meta property="og:image" content="https://dev.majdfatihy.com/facebook-contacts-converter/og-image.png">
+<meta property="og:image:alt" content="دليل تحويل جهات اتصال فيسبوك إلى ملفات vCard وGoogle CSV وExcel">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="دليل نقل جهات اتصال فيسبوك للهاتف | vCard وGoogle CSV">
+<meta name="twitter:description" content="دليل عملي لنقل جهات اتصال فيسبوك إلى أندرويد أو آيفون: تنزيل ملف HTML أو JSON، تحويله إلى vCard وGoogle CSV أو Excel، واستيراد الأسماء والأرقام بدون رفع الملف إلى خادم.">
+<meta name="twitter:image" content="https://dev.majdfatihy.com/facebook-contacts-converter/og-image.png">
 <style>
 :root{--bg:#f4f7f6;--card:#fff;--tx:#14201d;--mut:#4f625d;--ac:#0a7a65;--on:#fff;--ac2:#e3f4f0;--bd:#d9e3e0;--h1:#0a5e50;--h2:#0a7a65;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
 @media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1715;--card:#17211f;--tx:#e8f1ef;--mut:#9bb1ab;--ac:#2cc3a8;--on:#06201b;--ac2:#1b312d;--bd:#2a3a37;--h1:#0e2a25;--h2:#124a3f}}
@@ -52,6 +57,7 @@ footer{border-top:1px solid var(--bd);padding:18px 14px;text-align:center;color:
 footer a,.lnk{color:var(--ac);margin:0 8px}
 a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var(--ac);outline-offset:2px}
 </style>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://dev.majdfatihy.com/facebook-contacts-converter/guide.html#webpage","url":"https://dev.majdfatihy.com/facebook-contacts-converter/guide.html","name":"دليل نقل جهات اتصال فيسبوك إلى الهاتف وجوجل","description":"دليل عملي لنقل جهات اتصال فيسبوك إلى أندرويد أو آيفون: تنزيل ملف HTML أو JSON، تحويله إلى vCard وGoogle CSV أو Excel، واستيراد الأسماء والأرقام بدون رفع الملف إلى خادم.","inLanguage":["ar","en"],"dateModified":"2026-11-23","mainEntity":{"@id":"https://dev.majdfatihy.com/facebook-contacts-converter/guide.html#howto"}},{"@type":"HowTo","@id":"https://dev.majdfatihy.com/facebook-contacts-converter/guide.html#howto","name":"كيفية نقل جهات اتصال فيسبوك إلى الهاتف","description":"دليل عملي لنقل جهات اتصال فيسبوك إلى أندرويد أو آيفون: تنزيل ملف HTML أو JSON، تحويله إلى vCard وGoogle CSV أو Excel، واستيراد الأسماء والأرقام بدون رفع الملف إلى خادم.","inLanguage":"ar","step":[{"@type":"HowToStep","position":1,"name":"تنزيل جهات الاتصال من فيسبوك","text":"من مركز الحسابات اختر تنزيل معلوماتك ثم دفاتر العناوين أو جهات الاتصال المستوردة بصيغة HTML أو JSON."},{"@type":"HowToStep","position":2,"name":"رفع الملف في المحول","text":"افتح الأداة وارفع الملف؛ تتم قراءته في المتصفح دون رفعه إلى خادم."},{"@type":"HowToStep","position":3,"name":"مراجعة الجهات وتنظيفها","text":"راجع الأرقام والجهات المكررة، وحدد المطلوب ثم ادمج المتشابه."},{"@type":"HowToStep","position":4,"name":"تصدير واستيراد جهات الاتصال","text":"صدّر الملف بصيغة vCard أو Google CSV أو Excel حسب جهازك ثم اتبع خطوات الاستيراد."}]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ماجد فتحي","item":"https://dev.majdfatihy.com/"},{"@type":"ListItem","position":2,"name":"محوّل جهات اتصال فيسبوك","item":"https://dev.majdfatihy.com/facebook-contacts-converter/"},{"@type":"ListItem","position":3,"name":"دليل نقل جهات الاتصال","item":"https://dev.majdfatihy.com/facebook-contacts-converter/guide.html"}]}]}</script>
 </head>
 <body data-ads="open">
 <header>
